@@ -1,3 +1,4 @@
+const DotenvWebpackPlugin = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = {
     entry: {
@@ -35,6 +36,7 @@ const config = {
             filename: 'index.html',
             chunks: ['main'],
         }),
+        new DotenvWebpackPlugin(),
     ],
 }
 
