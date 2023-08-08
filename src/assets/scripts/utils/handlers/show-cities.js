@@ -1,12 +1,23 @@
-import { apiSearchShowCities } from '../../api/api-search-show-cities'
+import { apiGetCities } from '../../api/api-get-cities'
 import { removeChildren } from '../remove-children'
+import { filterToCitiesNameId } from '../../modules/filter-to-cities-name-id'
+
+function addHtmlElements(cities) {
+    if (cities.length === 0) return
+    let container = document.querySelector('#choises')
+    cities.forEach(item => {
+        let liElement = document.createElement('li')
+        liElement.textContent = item.name
+        container.append(liElement)
+    })
+}
 
 function showCities(event) {
     let container = document.querySelector('#choises')
     removeChildren(container)
     let cityName = this.value
     if (!cityName) return
-    apiSearchShowCities(cityName)
+    apiGetCities(cityName).then(filterToCitiesNameId).then(addHtmlElements)
 }
 
 export { showCities }
