@@ -1,10 +1,8 @@
 import { filterToCitiesNameId } from '../modules/filter-to-cities-name-id'
-import { removeChildren } from './../utils/remove-children'
 
 function addHtmlElements(cities) {
-    let container = document.querySelector('#choises')
-    removeChildren(container)
     if (cities.length === 0) return
+    let container = document.querySelector('#choises')
     cities.forEach(item => {
         let liElement = document.createElement('li')
         liElement.textContent = item.name
