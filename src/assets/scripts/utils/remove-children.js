@@ -1,7 +1,9 @@
-function removeChildren(container) {
-    while (container.children.length) {
-        container.firstElementChild.remove()
-    }
+function removeChildren(...args) {
+    args.forEach(container => {
+        while (container.children.length) {
+            container.firstElementChild.remove()
+        }
+    })
 }
 
 export { removeChildren }
