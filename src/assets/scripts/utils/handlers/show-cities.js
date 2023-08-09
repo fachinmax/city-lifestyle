@@ -1,6 +1,6 @@
 import { apiGetCities } from '../../api/api-get-cities'
 import { removeChildren } from '../remove-children'
-import { filterToCitiesNameId } from '../../modules/filter-to-cities-name-id'
+import { filterToCitiesNameIdInformations } from '../../modules/filter-to-cities-name-id'
 
 function addHtmlElements(cities) {
     if (cities.length === 0) return
@@ -17,7 +17,9 @@ function showCities(event) {
     removeChildren(container)
     let cityName = this.value
     if (!cityName) return
-    apiGetCities(cityName).then(filterToCitiesNameId).then(addHtmlElements)
+    apiGetCities(cityName)
+        .then(filterToCitiesNameIdInformations)
+        .then(addHtmlElements)
 }
 
 export { showCities }

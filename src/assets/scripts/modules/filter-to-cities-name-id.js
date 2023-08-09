@@ -1,4 +1,4 @@
-function filterToCitiesNameId(response) {
+function filterToCitiesNameIdInformations(response) {
     let cities = response._embedded['city:search-results']
     if (response.count === 0) return []
     let cityName
@@ -15,4 +15,4 @@ function filterToCitiesNameId(response) {
     })
 }
 
-export { filterToCitiesNameId }
+export { filterToCitiesNameIdInformations }
