@@ -1,16 +1,7 @@
 import { apiGetCities } from '../../api/api-get-cities'
 import { removeChildren } from '../remove-children'
 import { filterToCitiesNameIdInformations } from '../../modules/filter-to-cities-name-id'
-
-function addHtmlElements(cities, container) {
-    if (cities.length === 0) return
-
-    cities.forEach(item => {
-        let liElement = document.createElement('li')
-        liElement.textContent = item.name
-        container.append(liElement)
-    })
-}
+import { showOptions } from '../show-options'
 
 function showCities(event) {
     let container = this.form.querySelector('#choises')
@@ -19,7 +10,7 @@ function showCities(event) {
     if (!cityName) return
     apiGetCities(cityName)
         .then(filterToCitiesNameIdInformations)
-        .then(results => addHtmlElements(results, container))
+        .then(results => showOptions(results, container))
 }
 
 export { showCities }
