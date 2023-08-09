@@ -13,8 +13,7 @@ function checkExistenceCity(cities) {
     return cities
 }
 
-function showInformations(informations) {
-    let container = document.querySelector('#informations')
+function showInformations(informations, container) {
     showCityInformations(informations, container)
     let endpoint = informations.urbanArea
     if (!endpoint) return
@@ -27,8 +26,10 @@ function showInformations(informations) {
 
 function getCityInformations(event) {
     if (event.keyCode !== 13) return
-    let containerResults = document.querySelector('#informations')
-    let containerInformations = document.querySelector('#choises')
+    let form = this.form
+    let idContainer = form.dataset.output
+    let containerResults = document.querySelector(`#${idContainer}`)
+    let containerInformations = form.querySelector('#choises')
     removeChildren(containerResults, containerInformations)
     let cityName = event.target.value
     apiGetCities(cityName)
@@ -36,7 +37,7 @@ function getCityInformations(event) {
         .then(checkExistenceCity)
         .then(value => apiGetCityInformations(value[0].id))
         .then(filterToCityInformations)
-        .then(showInformations)
+        .then(informations => showInformations(informations, containerResults))
         .catch(error => {})
 }
 
