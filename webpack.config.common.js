@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = {
     entry: {
         main: './src/assets/scripts/index.js',
+        moreSearchCity: './src/assets/scripts/add-search-elements.js',
     },
     output: {
         clean: true,
@@ -35,6 +36,11 @@ const config = {
             template: './src/index.html',
             filename: 'index.html',
             chunks: ['main'],
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/compare.html',
+            filename: 'compare.html',
+            chunks: ['moreSearchCity'],
         }),
         new DotenvWebpackPlugin(),
     ],
