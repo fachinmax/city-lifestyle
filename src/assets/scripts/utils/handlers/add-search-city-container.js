@@ -2,21 +2,14 @@ import { getForm } from '../../components/form'
 import { getInput } from '../../components/input'
 import { getUl } from '../../components/ul'
 import { getDiv } from '../../components/div'
-import { showCities } from './show-cities'
-import { getCityInformations } from './get-city-informations'
+import { addHandlersToSearchContainer } from '../add-handlers-search-city-container'
 
 let count = 2
-
-function addEvents(form, input) {
-    input.addEventListener('input', showCities)
-    input.addEventListener('keydown', getCityInformations)
-    form.addEventListener('submit', event => event.preventDefault())
-}
 
 function createForm(count) {
     let form = getForm(`cities${count}`, `informations${count}`)
     let input = getInput('text', 'search-bar', 'search')
-    addEvents(form, input)
+    // addEvents(form, input)
     let ul = getUl('choises')
     form.append(input, ul)
     return form
@@ -33,6 +26,7 @@ function addSearchCityContainer(event) {
     document
         .querySelector('#search-cities-container')
         .append(searchCityContainer)
+    addHandlersToSearchContainer()
 }
 
 export { addSearchCityContainer }
