@@ -4,8 +4,9 @@ import { getUl } from '../../components/ul'
 import { getDiv } from '../../components/div'
 import { getButton } from '../../components/button'
 import { addHandlersToSearchContainer } from '../add-handlers-search-city-container'
+import { getNumberSearchCityContainers } from '../get-number-search-city-containers'
 
-let count = 2
+let id = 2
 
 function createForm(count) {
     let form = getForm(`cities-${count}`, `informations-${count}`)
@@ -16,12 +17,12 @@ function createForm(count) {
 }
 
 function addSearchCityContainer(event) {
-    if (count === 5) {
-        this.hidden = true
-    }
+    this.hidden =
+        process.env.MAX_NUMBER_SEARCH_CITY_CONTAINERS ==
+        getNumberSearchCityContainers() + 1
     let searchCityContainer = getDiv('search-city-container')
-    let form = createForm(++count)
-    let informations = getDiv(`informations-${count}`)
+    let form = createForm(++id)
+    let informations = getDiv(`informations-${id}`)
     let remove = getButton('remove', '-')
     searchCityContainer.append(remove, form, informations)
     document
