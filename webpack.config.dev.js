@@ -4,7 +4,7 @@ const configBase = require('./webpack.config.common.js')
 const configDev = {
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: './assets/scripts/[name].js',
+        filename: './assets/scripts/[name].bundle.js',
     },
     module: {
         rules: [

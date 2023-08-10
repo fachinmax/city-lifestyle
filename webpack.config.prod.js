@@ -17,7 +17,7 @@ const configProd = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: './assets/styles/[name].[contenthash].css',
+            filename: './assets/styles/[name].bundle.[contenthash].css',
         }),
     ],
     mode: 'production',
