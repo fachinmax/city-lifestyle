@@ -1,3 +1,5 @@
+'use strict'
+
 import { addSearchCityContainer } from './utils/handlers/add-search-city-container'
 import { addHandlersToSearchContainer } from './utils/add-handlers-search-city-container'
 
