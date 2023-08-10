@@ -21,8 +21,9 @@ function addSearchCityContainer(event) {
     }
     let searchCityContainer = getDiv(`search-city-container`)
     let form = createForm(++count)
-    let div = getDiv(`informations${count}`)
-    searchCityContainer.append(form, div)
+    let informations = getDiv(`informations${count}`)
+    let remove = getButton('remove', '-')
+    searchCityContainer.append(remove, form, informations)
     document
         .querySelector('#search-cities-container')
         .append(searchCityContainer)
