@@ -6,7 +6,8 @@ import { getButton } from '../../components/button'
 import { addHandlersToSearchContainer } from '../add-handlers-search-city-container'
 import { getNumberSearchCityContainers } from '../get-number-search-city-containers'
 
-let id = 2
+// variable to create a unique search city container. It's value is like a counter. It memorize the number of container created
+let key = 2
 
 function createForm(count) {
     let form = getForm(
@@ -24,9 +25,10 @@ function addSearchCityContainer(event) {
     this.hidden =
         process.env.MAX_NUMBER_SEARCH_CITY_CONTAINERS ==
         getNumberSearchCityContainers() + 1
+    key++
     let searchCityContainer = getDiv('search-city-container')
-    let form = createForm(++id)
-    let informations = getDiv(`informations-${id}`, `cities-${id}`)
+    let form = createForm(key)
+    let informations = getDiv(`informations-${key}`, `cities-${key}`)
     let remove = getButton('remove', '-')
     searchCityContainer.append(remove, form, informations)
     document
