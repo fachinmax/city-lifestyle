@@ -12,6 +12,7 @@ function addHandlersToSearchContainer() {
         searchBar.oninput = showCities
         searchBar.onkeydown = getCityInformations
         form.onsubmit = event => event.preventDefault()
+        // only compare.html page has a button to remove the container
         if (removeSignal) removeSignal.onclick = removeContainer
     })
 }
