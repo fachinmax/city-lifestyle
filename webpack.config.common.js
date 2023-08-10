@@ -4,6 +4,7 @@ const config = {
     entry: {
         main: './src/assets/scripts/index.js',
         moreSearchCity: './src/assets/scripts/add-search-elements.js',
+        map: './src/assets/scripts/map.js',
     },
     output: {
         clean: true,
@@ -35,7 +36,7 @@ const config = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',
-            chunks: ['main'],
+            chunks: ['main', 'map'],
         }),
         new HtmlWebpackPlugin({
             template: './src/compare.html',
