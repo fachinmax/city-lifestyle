@@ -32,6 +32,7 @@ function getCityInformations(event) {
     let containerInformations = form.querySelector('#choises')
     removeChildren(containerResults, containerInformations)
     let cityName = event.target.value
+    if (!cityName) return
     apiGetCities(cityName)
         .then(filterToCitiesNameIdInformations)
         .then(checkExistenceCity)
