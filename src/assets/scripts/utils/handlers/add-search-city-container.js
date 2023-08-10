@@ -9,7 +9,11 @@ import { getNumberSearchCityContainers } from '../get-number-search-city-contain
 let id = 2
 
 function createForm(count) {
-    let form = getForm(`cities-${count}`, `informations-${count}`)
+    let form = getForm(
+        `cities-${count}`,
+        `cities-${count}`,
+        `informations-${count}`
+    )
     let input = getInput('text', 'search-bar', 'search')
     let ul = getUl('choises')
     form.append(input, ul)
@@ -22,7 +26,7 @@ function addSearchCityContainer(event) {
         getNumberSearchCityContainers() + 1
     let searchCityContainer = getDiv('search-city-container')
     let form = createForm(++id)
-    let informations = getDiv(`informations-${id}`)
+    let informations = getDiv(`informations-${id}`, `cities-${id}`)
     let remove = getButton('remove', '-')
     searchCityContainer.append(remove, form, informations)
     document

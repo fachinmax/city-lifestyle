@@ -8,11 +8,11 @@
     </head>
     <body>
         <div id="search-city-container">
-            <form name="cities" data-output="informations">
+            <form id="cities" name="cities" aria-controls="informations">
                 <input type="text" name="search-bar" placeholder="search" />
                 <ul id="choises"></ul>
             </form>
-            <div id="informations"></div>
+            <div aria-labelledby="cities" id="informations"></div>
         </div>
         <a href="./compare.html" target="_blank">compare cities</a>
     </body>

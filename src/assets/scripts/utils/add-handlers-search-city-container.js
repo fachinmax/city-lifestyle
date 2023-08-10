@@ -12,7 +12,7 @@ function addHandlersToSearchContainer() {
         searchBar.oninput = showCities
         searchBar.onkeydown = getCityInformations
         form.onsubmit = event => event.preventDefault()
-        removeSignal.onclick = removeContainer
+        if (removeSignal) removeSignal.onclick = removeContainer
     })
 }
 

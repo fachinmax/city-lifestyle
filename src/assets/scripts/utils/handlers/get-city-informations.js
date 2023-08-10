@@ -27,7 +27,7 @@ function showInformations(informations, container) {
 function getCityInformations(event) {
     if (event.keyCode !== 13) return
     let form = this.form
-    let idContainer = form.dataset.output
+    let idContainer = form.getAttribute('aria-controls')
     let containerResults = document.querySelector(`#${idContainer}`)
     let containerInformations = form.querySelector('#choises')
     removeChildren(containerResults, containerInformations)
