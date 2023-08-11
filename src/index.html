@@ -28,7 +28,12 @@
         </style>
         <div id="search-city-container">
             <div id="map"></div>
-
+            <select id="map-style">
+                <option value="s,h" selected>Hybrid</option>
+                <option value="s">Satellite</option>
+                <option value="m">Street</option>
+                <option value="p">Terrain</option>
+            </select>
             <form id="cities" name="cities" aria-controls="informations">
                 <input type="text" name="search-bar" placeholder="search" />
                 <ul id="choises"></ul>
