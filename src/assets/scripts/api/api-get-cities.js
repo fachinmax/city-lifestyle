@@ -3,7 +3,9 @@ function cachingDecoratorCities() {
 
     return function (cityName) {
         let cities = dictionary.get(cityName)
+
         if (cities) return Promise.resolve(cities)
+
         let api = process.env.API_SEARCH_CITY
         api = api.replace(/name/, cityName)
         return fetch(api)

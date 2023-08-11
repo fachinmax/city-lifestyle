@@ -1,5 +1,7 @@
 'use strict'
 
+import { mapContainerDecorator as getCoordsReturnCityInformations } from './utils/handlers/get-coords-return-city'
+
 function initMap(container) {
     const map = L.map(container)
     map.setView([30, 10], 1)
@@ -21,16 +23,4 @@ function setViewMap(map, style) {
 const mapContainer = document.querySelector('#map')
 const map = initMap(mapContainer)
 setViewMap(map)
-map.on('click', onMapClick)
-
-function onMapClick(event) {
-    const popup = L.popup()
-    popup
-        .setLatLng(event.latlng)
-        .setContent(
-            `Coordinates: latitude: ${event.latlng.lat}, longitude: ${event.latlng.lng}`
-        )
-    map.addLayer(popup)
-    console.log(event.latlng)
-    setTimeout(_ => map.removeLayer(popup), 2000)
-}
+map.on('click', getCoordsReturnCityInformations(mapContainer))

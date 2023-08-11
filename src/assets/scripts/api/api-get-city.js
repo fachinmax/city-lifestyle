@@ -3,7 +3,9 @@ function cachingDecoratorInformations() {
 
     return function (cityId) {
         let informations = dictionary.get(cityId)
+
         if (informations) return Promise.resolve(informations)
+
         let rawHref = process.env.API_SINGLE_CITY
         let endpoint = rawHref.replace(/code/, cityId)
         return fetch(endpoint)

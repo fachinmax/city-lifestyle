@@ -7,7 +7,9 @@ function showCities(event) {
     let container = this.form.querySelector('#choises')
     removeChildren(container)
     let cityName = this.value
+
     if (!cityName) return
+
     apiGetCities(cityName)
         .then(filterToCitiesNameIdInformations)
         .then(results => showOptions(results, container))
