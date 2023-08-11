@@ -12,6 +12,7 @@ function showPopup(map, lat, lng) {
         .setLatLng([lat, lng])
         .setContent(`Coordinates: latitude: ${lat}, longitude: ${lng}`)
     map.addLayer(popup)
+    return popup
 }
 
 function mapContainerDecorator(container) {
@@ -22,7 +23,7 @@ function mapContainerDecorator(container) {
 
         let lat = event.latlng.lat
         let lng = event.latlng.lng
-        showPopup(this, lat, lng)
+        const popup = showPopup(this, lat, lng)
         apiGetLocation(lat, lng)
             .then(filterToCitiesNameIdInformations)
             .then(checkExistenceCity)
@@ -32,7 +33,6 @@ function mapContainerDecorator(container) {
                 showCityInformations(informations, containerInformations)
             })
             .catch(error => {})
-        // setTimeout(_ => this.removeLayer(popup), 2500)
     }
 }
 
