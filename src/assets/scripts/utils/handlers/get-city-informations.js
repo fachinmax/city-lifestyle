@@ -4,12 +4,7 @@ import { filterToCitiesNameIdInformations } from '../../modules/filter-to-cities
 import { filterToCityInformations } from '../../modules/filter-to-city-informations'
 import { apiGetCityInformations } from '../../api/api-get-city'
 import { showCityInformations } from '../show-city-informations'
-
-function checkExistenceCity(cities) {
-    if (cities.length === 0) throw Error('no city found')
-
-    return cities
-}
+import { checkExistenceCity } from '../check-existence-city'
 
 function getCityInformations(event) {
     if (event.keyCode !== 13) return

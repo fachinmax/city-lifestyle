@@ -1,13 +1,17 @@
 function getDataFormLocation(response) {
     let city =
-        response._embedded['location:nearest-cities'][0]._links[
+        response._embedded['location:nearest-cities']?.[0]._links[
             'location:nearest-city'
         ]
+    // no city founded
+    if (!city) return undefined
+
     return city.href.match(/\d+/)[0]
 }
 
 function getDataFormCityList(response) {
-    if (response.count === 0) return []
+    // no city founded
+    if (response.count === 0) return undefined
 
     let cities = response._embedded['city:search-results']
     let cityName

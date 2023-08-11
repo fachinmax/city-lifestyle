@@ -4,6 +4,7 @@ import { filterToCityInformations } from '../../modules/filter-to-city-informati
 import { showCityInformations } from '../show-city-informations'
 import { apiGetCityInformations } from '../../api/api-get-city'
 import { removeChildren } from '../remove-children'
+import { checkExistenceCity } from '../check-existence-city'
 
 function showPopup(map, lat, lng) {
     const popup = L.popup()
@@ -15,7 +16,7 @@ function showPopup(map, lat, lng) {
 
 function mapContainerDecorator(container) {
     return function (event) {
-        let containerInformations = document.querySelector(`#informations`)
+        let containerInformations = document.querySelector('#informations')
         let containerChoises = document.querySelector('#choises')
         removeChildren(containerChoises, containerInformations)
 
@@ -24,11 +25,13 @@ function mapContainerDecorator(container) {
         showPopup(this, lat, lng)
         apiGetLocation(lat, lng)
             .then(filterToCitiesNameIdInformations)
+            .then(checkExistenceCity)
             .then(apiGetCityInformations)
             .then(filterToCityInformations)
             .then(informations => {
                 showCityInformations(informations, containerInformations)
             })
+            .catch(error => {})
         // setTimeout(_ => this.removeLayer(popup), 2500)
     }
 }
