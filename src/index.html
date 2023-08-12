@@ -26,7 +26,8 @@
                 margin: auto;
             }
         </style>
-        <div id="search-city-container">
+        <a href="./compare.html" target="_blank">compare cities</a>
+        <div class="map-container">
             <div id="map"></div>
             <select id="map-style">
                 <option value="hybrid" selected>Hybrid</option>
@@ -34,6 +35,8 @@
                 <option value="street">Street</option>
                 <option value="terrain">Terrain</option>
             </select>
+        </div>
+        <div id="search-city-container">
             <form id="cities" name="cities" aria-controls="informations">
                 <input
                     type="text"
@@ -45,6 +48,5 @@
             </form>
             <div aria-labelledby="cities" id="informations"></div>
         </div>
-        <a href="./compare.html" target="_blank">compare cities</a>
     </body>
 </html>
