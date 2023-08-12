@@ -17,7 +17,7 @@ function createForm(count) {
     return form
 }
 
-// variable to create a unique search city container. It's value is like a counter. It memorize the number of container created
+// variable to create a unique search city container. It's value is like a counter. It memorizes the number of container created
 addCitySearchContainer.key = 2
 
 function addCitySearchContainer(event) {
