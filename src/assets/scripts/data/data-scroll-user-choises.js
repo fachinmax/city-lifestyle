@@ -26,6 +26,27 @@ class InputValue {
     }
 }
 
-let dataDictionaryChoises = { inputValue: new InputValue(), index: new Index() }
+class IdCity {
+    constructor() {}
+
+    set value(value) {
+        if (value === undefined) {
+            this._value = undefined
+            return
+        }
+        if (!isFinite(value)) return
+        this._value = Number.parseInt(value)
+    }
+
+    get value() {
+        return this._value
+    }
+}
+
+let dataDictionaryChoises = {
+    inputValue: new InputValue(),
+    index: new Index(),
+    idCity: new IdCity(),
+}
 
 export { dataDictionaryChoises }

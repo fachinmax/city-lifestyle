@@ -5,6 +5,7 @@ import { filterToCityInformations } from '../../modules/filter-to-city-informati
 import { apiGetCityInformations } from '../../api/api-get-city'
 import { showCityInformations } from '../show-city-informations'
 import { checkExistenceCity } from '../check-existence-city'
+import { dataDictionaryChoises } from '../../data/data-scroll-user-choises'
 
 function getCityInformations(event) {
     if (event.keyCode !== 13) return
@@ -18,15 +19,26 @@ function getCityInformations(event) {
 
     if (!cityName) return
 
-    apiGetCities(cityName)
-        .then(filterToCitiesNameIdInformations)
-        .then(checkExistenceCity)
-        .then(value => apiGetCityInformations(value[0].id))
-        .then(filterToCityInformations)
-        .then(informations =>
-            showCityInformations(informations, containerInformations)
-        )
-        .catch(error => {})
+    // id city saved when the user score through the list of all possible cities. See data scroll to choises module
+    let idCity = dataDictionaryChoises.idCity.value
+    if (idCity) {
+        apiGetCityInformations(idCity)
+            .then(filterToCityInformations)
+            .then(informations =>
+                showCityInformations(informations, containerInformations)
+            )
+            .catch(error => {})
+    } else {
+        apiGetCities(cityName)
+            .then(filterToCitiesNameIdInformations)
+            .then(checkExistenceCity)
+            .then(value => apiGetCityInformations(value[0].id))
+            .then(filterToCityInformations)
+            .then(informations =>
+                showCityInformations(informations, containerInformations)
+            )
+            .catch(error => {})
+    }
 }
 
 export { getCityInformations }

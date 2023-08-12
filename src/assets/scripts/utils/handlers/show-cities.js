@@ -16,6 +16,7 @@ function showCities(event) {
     // I need memorize the input value and set the index to -1 because I'll use when the user scroll all the city choises (see scroll-to-choises module)
     dataDictionaryChoises.inputValue.value = cityName
     dataDictionaryChoises.index.value = -1
+    dataDictionaryChoises.idCity.value = undefined
     apiGetCities(cityName)
         .then(filterToCitiesNameIdInformations)
         .then(checkExistenceCity)

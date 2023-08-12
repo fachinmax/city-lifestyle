@@ -57,6 +57,13 @@ function scrollToChoises(event) {
     let direction = event.keyCode === 40 ? 'down' : 'up'
     highlightChildren(false, choisesContainer)
     setIndex(direction, choisesContainer)
+    let index = dataDictionaryChoises.index.value
+    if (index === -1) {
+        dataDictionaryChoises.idCity.value = undefined
+    } else {
+        dataDictionaryChoises.idCity.value =
+            choisesContainer.children[index].dataset.idCity
+    }
     highlightChildren(true, choisesContainer, 'yellow')
     rewriteInputElement(this, choisesContainer)
 }
