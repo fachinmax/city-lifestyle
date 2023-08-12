@@ -13,7 +13,8 @@ function initMap(container) {
 // setting the map
 let mapContainer = document.querySelector('#map')
 let map = initMap(mapContainer)
-let mapLayer = setViewMap(map, 's,h')
+let mapLayer = setViewMap(map, 'hybrid')
+
 map.on('click', getCoordsReturnCityInformations(mapContainer))
 
 // handle the map style
