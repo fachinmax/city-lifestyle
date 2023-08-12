@@ -6,7 +6,7 @@ import { setViewMap } from './utils/set-view-map'
 
 function initMap(container) {
     let map = L.map(container)
-    map.setView([30, 10], 1)
+    map.setView([30, 10], 2)
     return map
 }
 
