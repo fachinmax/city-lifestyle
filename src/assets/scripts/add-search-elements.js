@@ -1,10 +1,10 @@
 'use strict'
 
-import { addSearchCityContainer } from './utils/handlers/add-search-city-container'
-import { addHandlersToSearchContainer } from './utils/add-handlers-search-city-container'
+import { addCitySearchContainer } from './utils/handlers/add-city-search-container'
+import { addHandlersToCitySearchContainer } from './utils/add-handlers-city-search-container'
 
 let button = document.querySelector('#add-containers')
 
-button.addEventListener('click', addSearchCityContainer)
+button.addEventListener('click', addCitySearchContainer)
 
-addHandlersToSearchContainer()
+addHandlersToCitySearchContainer()

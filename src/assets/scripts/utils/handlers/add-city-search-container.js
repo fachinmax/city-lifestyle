@@ -3,7 +3,7 @@ import { getInput } from '../../components/input'
 import { getUl } from '../../components/ul'
 import { getDiv } from '../../components/div'
 import { getButton } from '../../components/button'
-import { addHandlersToSearchContainer } from '../add-handlers-search-city-container'
+import { addHandlersToCitySearchContainer } from '../add-handlers-city-search-container'
 
 function createForm(count) {
     let form = getForm(
@@ -18,22 +18,22 @@ function createForm(count) {
 }
 
 // variable to create a unique search city container. It's value is like a counter. It memorize the number of container created
-addSearchCityContainer.key = 2
+addCitySearchContainer.key = 2
 
-function addSearchCityContainer(event) {
-    addSearchCityContainer.key++
-    let searchCityContainer = getDiv('search-city-container')
-    let form = createForm(addSearchCityContainer.key)
+function addCitySearchContainer(event) {
+    addCitySearchContainer.key++
+    let citySearchContainer = getDiv('city-search-container')
+    let form = createForm(addCitySearchContainer.key)
     let informations = getDiv(
-        `informations-${addSearchCityContainer.key}`,
-        `cities-${addSearchCityContainer.key}`
+        `informations-${addCitySearchContainer.key}`,
+        `cities-${addCitySearchContainer.key}`
     )
     let remove = getButton('remove', '-')
-    searchCityContainer.append(remove, form, informations)
+    citySearchContainer.append(remove, form, informations)
     document
-        .querySelector('#search-cities-container')
-        .append(searchCityContainer)
-    addHandlersToSearchContainer()
+        .querySelector('#cities-search-container')
+        .append(citySearchContainer)
+    addHandlersToCitySearchContainer()
 }
 
-export { addSearchCityContainer }
+export { addCitySearchContainer }

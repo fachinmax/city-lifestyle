@@ -1,5 +1,5 @@
 'use strict'
 
-import { addHandlersToSearchContainer } from './utils/add-handlers-search-city-container'
+import { addHandlersToCitySearchContainer } from './utils/add-handlers-city-search-container'
 
-addHandlersToSearchContainer()
+addHandlersToCitySearchContainer()
