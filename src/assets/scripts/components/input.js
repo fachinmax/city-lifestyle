@@ -3,6 +3,7 @@ function getInput(type, name, placeholder) {
     input.type = type
     input.name = name
     input.placeholder = placeholder
+    input.autocomplete = 'off'
     return input
 }
 

@@ -1,6 +1,7 @@
 import { showCities } from './handlers/show-cities'
 import { getCityInformations } from './handlers/get-city-informations'
 import { removeContainer } from './handlers/remove-container'
+import { scrollToChoises } from './handlers/scroll-to-choises'
 
 function addHandlersToSearchContainer() {
     let formsArr = Array.from(document.forms)
@@ -11,7 +12,9 @@ function addHandlersToSearchContainer() {
             .querySelector('#remove')
         searchBar.oninput = showCities
         searchBar.onkeydown = getCityInformations
+        searchBar.addEventListener('keydown', scrollToChoises)
         form.onsubmit = event => event.preventDefault()
+
         // only compare.html page has a button to remove the container
         if (removeSignal) removeSignal.onclick = removeContainer
     })
