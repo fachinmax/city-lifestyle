@@ -1,4 +1,4 @@
-function filterToCityInformations(response) {
+function filterToInformationsCity(response) {
     let [name, region, country] = response.full_name.split(', ')
     let informations = {
         name,
@@ -10,4 +10,4 @@ function filterToCityInformations(response) {
     return informations
 }
 
-export { filterToCityInformations }
+export { filterToInformationsCity }

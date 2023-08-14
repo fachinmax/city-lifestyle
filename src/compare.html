@@ -7,42 +7,48 @@
         <title>Cities lifestyle</title>
     </head>
     <body>
-        <div id="cities-search-container">
-            <div id="city-search-container">
-                <button id="remove">-</button>
-                <form
-                    id="cities-1"
-                    name="cities-1"
-                    aria-controls="informations-1"
-                >
-                    <input
-                        type="text"
-                        name="search-bar"
-                        placeholder="search"
-                        autocomplete="off"
-                    />
-                    <ul id="choises"></ul>
-                </form>
-                <div id="informations-1" aria-labelledby="cities-1"></div>
+        <header>
+            <nav>
+                <button id="add-containers">Add</button>
+            </nav>
+        </header>
+        <main>
+            <div id="container-cities-search">
+                <div id="container-city-search">
+                    <button id="remove">-</button>
+                    <form
+                        id="cities-1"
+                        name="cities-1"
+                        aria-controls="informations-1"
+                    >
+                        <input
+                            type="text"
+                            name="search-bar"
+                            placeholder="search"
+                            autocomplete="off"
+                        />
+                        <ul id="choises"></ul>
+                    </form>
+                    <div id="informations-1" aria-labelledby="cities-1"></div>
+                </div>
+                <div id="container-city-search">
+                    <button id="remove">-</button>
+                    <form
+                        id="cities-2"
+                        name="cities-2"
+                        aria-controls="informations-2"
+                    >
+                        <input
+                            type="text"
+                            name="search-bar"
+                            placeholder="search"
+                            autocomplete="off"
+                        />
+                        <ul id="choises"></ul>
+                    </form>
+                    <div id="informations-2" aria-labelledby="cities-2"></div>
+                </div>
             </div>
-            <div id="city-search-container">
-                <button id="remove">-</button>
-                <form
-                    id="cities-2"
-                    name="cities-2"
-                    aria-controls="informations-2"
-                >
-                    <input
-                        type="text"
-                        name="search-bar"
-                        placeholder="search"
-                        autocomplete="off"
-                    />
-                    <ul id="choises"></ul>
-                </form>
-                <div id="informations-2" aria-labelledby="cities-2"></div>
-            </div>
-        </div>
-        <button id="add-containers">Add</button>
+        </main>
     </body>
 </html>

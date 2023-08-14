@@ -28,7 +28,7 @@ function getDataFormCityList(response) {
     })
 }
 
-function filterToCitiesNameIdInformations(response) {
+function filterToInformationsCitiesNameId(response) {
     if (response._embedded?.['city:search-results']) {
         return getDataFormCityList(response)
     } else {
@@ -36,4 +36,4 @@ function filterToCitiesNameIdInformations(response) {
     }
 }
 
-export { filterToCitiesNameIdInformations }
+export { filterToInformationsCitiesNameId }

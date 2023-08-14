@@ -26,27 +26,33 @@
                 margin: auto;
             }
         </style>
-        <a href="./compare.html" target="_blank">compare cities</a>
-        <div class="map-container">
-            <div id="map"></div>
-            <select id="map-style">
-                <option value="hybrid" selected>Hybrid</option>
-                <option value="satellite">Satellite</option>
-                <option value="street">Street</option>
-                <option value="terrain">Terrain</option>
-            </select>
-        </div>
-        <div id="city-search-container">
-            <form id="cities" name="cities" aria-controls="informations">
-                <input
-                    type="text"
-                    name="search-bar"
-                    placeholder="search"
-                    autocomplete="off"
-                />
-                <ul id="choises"></ul>
-            </form>
-            <div aria-labelledby="cities" id="informations"></div>
-        </div>
+        <header>
+            <nav>
+                <a href="./compare.html" target="_blank">compare cities</a>
+            </nav>
+        </header>
+        <main>
+            <div class="container-map">
+                <div id="map"></div>
+                <select id="style-map">
+                    <option value="hybrid" selected>Hybrid</option>
+                    <option value="satellite">Satellite</option>
+                    <option value="street">Street</option>
+                    <option value="terrain">Terrain</option>
+                </select>
+            </div>
+            <div id="container-city-search">
+                <form id="cities" name="cities" aria-controls="informations">
+                    <input
+                        type="text"
+                        name="search-bar"
+                        placeholder="search"
+                        autocomplete="off"
+                    />
+                    <ul id="choises"></ul>
+                </form>
+                <div aria-labelledby="cities" id="informations"></div>
+            </div>
+        </main>
     </body>
 </html>

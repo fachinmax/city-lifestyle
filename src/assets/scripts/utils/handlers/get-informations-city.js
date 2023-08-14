@@ -1,12 +1,12 @@
 import { removeChildren } from '../remove-children'
 import { apiGetCities } from '../../api/api-get-cities'
-import { filterToCitiesNameIdInformations } from '../../modules/filter-to-cities-name-id'
-import { filterToCityInformations } from '../../modules/filter-to-city-informations'
-import { apiGetCityInformations } from '../../api/api-get-city'
-import { showCityInformations } from '../show-city-informations'
+import { filterToInformationsCitiesNameId } from '../../modules/filter-to-cities-name-id'
+import { filterToInformationsCity } from '../../modules/filter-to-informations-city'
+import { apiGetInformationsCity } from '../../api/api-get-city'
+import { showInformationsCity } from '../show-informations-city'
 import { checkExistenceCity } from '../check-existence-city'
 
-function getCityInformations(event) {
+function getInformationsCity(event) {
     if (event.keyCode !== 13) return
 
     let form = this.form
@@ -20,21 +20,21 @@ function getCityInformations(event) {
 
     // id city saved when the user score through the list of all possible cities. See data scroll to choises module
     if (containerChoises.idCitySelected) {
-        apiGetCityInformations(containerChoises.idCitySelected)
-            .then(filterToCityInformations)
+        apiGetInformationsCity(containerChoises.idCitySelected)
+            .then(filterToInformationsCity)
             .then(informations =>
-                showCityInformations(informations, containerInformations)
+                showInformationsCity(informations, containerInformations)
             )
             // .catch(error => {})
             .catch(alert)
     } else {
         apiGetCities(cityName)
-            .then(filterToCitiesNameIdInformations)
+            .then(filterToInformationsCitiesNameId)
             .then(checkExistenceCity)
-            .then(value => apiGetCityInformations(value[0].id))
-            .then(filterToCityInformations)
+            .then(value => apiGetInformationsCity(value[0].id))
+            .then(filterToInformationsCity)
             .then(informations =>
-                showCityInformations(informations, containerInformations)
+                showInformationsCity(informations, containerInformations)
             )
             .catch(error => {
                 alert(error.message)
@@ -42,4 +42,4 @@ function getCityInformations(event) {
     }
 }
 
-export { getCityInformations }
+export { getInformationsCity }

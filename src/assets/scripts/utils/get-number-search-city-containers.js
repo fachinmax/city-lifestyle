@@ -1,6 +1,6 @@
-function getNumberSearchCityContainers() {
+function getNumberContainersSearchCity() {
     let number = document.querySelectorAll('#search-city-container').length
     return number
 }
 
-export { getNumberSearchCityContainers }
+export { getNumberContainersSearchCity }

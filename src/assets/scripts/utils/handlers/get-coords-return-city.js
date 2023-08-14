@@ -1,8 +1,8 @@
 import { apiGetLocation } from '../../api/api-get-location'
-import { filterToCitiesNameIdInformations } from '../../modules/filter-to-cities-name-id'
-import { filterToCityInformations } from '../../modules/filter-to-city-informations'
-import { showCityInformations } from '../show-city-informations'
-import { apiGetCityInformations } from '../../api/api-get-city'
+import { filterToInformationsCitiesNameId } from '../../modules/filter-to-cities-name-id'
+import { filterToInformationsCity } from '../../modules/filter-to-informations-city'
+import { showInformationsCity } from '../show-informations-city'
+import { apiGetInformationsCity } from '../../api/api-get-city'
 import { removeChildren } from '../remove-children'
 import { checkExistenceCity } from '../check-existence-city'
 
@@ -29,12 +29,12 @@ function mapContainerDecorator(container) {
         let lng = event.latlng.lng
         let popup = showPopup(this, lat, lng)
         apiGetLocation(lat, lng)
-            .then(filterToCitiesNameIdInformations)
+            .then(filterToInformationsCitiesNameId)
             .then(checkExistenceCity)
-            .then(apiGetCityInformations)
-            .then(filterToCityInformations)
+            .then(apiGetInformationsCity)
+            .then(filterToInformationsCity)
             .then(informations => {
-                showCityInformations(informations, containerInformations)
+                showInformationsCity(informations, containerInformations)
             })
             .catch(error => {
                 alert(error.message)

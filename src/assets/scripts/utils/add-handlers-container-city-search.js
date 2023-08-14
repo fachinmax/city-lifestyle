@@ -1,17 +1,17 @@
 import { showCities } from './handlers/show-cities'
-import { getCityInformations } from './handlers/get-city-informations'
+import { getInformationsCity } from './handlers/get-informations-city'
 import { removeContainer } from './handlers/remove-container'
 import { scrollToChoises } from './handlers/scroll-to-choises'
 
-function addHandlersToCitySearchContainer() {
+function addHandlersToContainerCitySearch() {
     let formsArr = Array.from(document.forms)
     formsArr.forEach(form => {
         let searchBar = form.elements['search-bar']
         let removeSignal = form
-            .closest('#city-search-container')
+            .closest('#container-city-search')
             .querySelector('#remove')
         searchBar.oninput = showCities
-        searchBar.onkeydown = getCityInformations
+        searchBar.onkeydown = getInformationsCity
         searchBar.addEventListener('keydown', scrollToChoises)
         form.onsubmit = event => event.preventDefault()
 
@@ -20,4 +20,4 @@ function addHandlersToCitySearchContainer() {
     })
 }
 
-export { addHandlersToCitySearchContainer }
+export { addHandlersToContainerCitySearch }

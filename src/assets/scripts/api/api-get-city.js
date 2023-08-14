@@ -20,6 +20,6 @@ function cachingDecoratorInformations() {
     }
 }
 
-const apiGetCityInformations = cachingDecoratorInformations()
+const apiGetInformationsCity = cachingDecoratorInformations()
 
-export { apiGetCityInformations }
+export { apiGetInformationsCity }

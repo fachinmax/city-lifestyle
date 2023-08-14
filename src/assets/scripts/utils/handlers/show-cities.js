@@ -1,6 +1,6 @@
 import { apiGetCities } from '../../api/api-get-cities'
 import { removeChildren } from '../remove-children'
-import { filterToCitiesNameIdInformations } from '../../modules/filter-to-cities-name-id'
+import { filterToInformationsCitiesNameId } from '../../modules/filter-to-cities-name-id'
 import { showOptions } from '../show-options'
 import { checkExistenceCity } from '../check-existence-city'
 
@@ -16,7 +16,7 @@ function showCities(event) {
     container.index = -1
     container.idCity = undefined
     apiGetCities(nameCity)
-        .then(filterToCitiesNameIdInformations)
+        .then(filterToInformationsCitiesNameId)
         .then(checkExistenceCity)
         .then(results => showOptions(results, container))
         .catch(error => {

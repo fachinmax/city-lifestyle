@@ -1,5 +1,5 @@
 function removeContainer(event) {
-    let container = this.closest('#city-search-container')
+    let container = this.closest('#container-city-search')
     container.remove()
 }
 

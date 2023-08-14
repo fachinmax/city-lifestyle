@@ -1,6 +1,6 @@
-import { showUrbanAreaInformations } from './show-urban-area-informations'
+import { showInformationsUrbanArea } from './show-informations-urban-area'
 import { apiGetUrbanArea } from '../api/api-get-urban-area'
-import { filterToUrbanAreaInformations } from '../modules/filter-to-urban-area-informations'
+import { filterToInformationsUrbanArea } from '../modules/filter-to-informations-urban-area'
 
 function showBaseCity(informations, container) {
     for (let [key, value] of Object.entries(informations)) {
@@ -11,7 +11,7 @@ function showBaseCity(informations, container) {
     }
 }
 
-function showCityInformations(informations, container) {
+function showInformationsCity(informations, container) {
     showBaseCity(informations, container)
     let endpoint = informations.urbanArea
 
@@ -19,10 +19,10 @@ function showCityInformations(informations, container) {
 
     // if the city is a urban area
     apiGetUrbanArea(endpoint)
-        .then(filterToUrbanAreaInformations)
+        .then(filterToInformationsUrbanArea)
         .then(result => {
-            showUrbanAreaInformations(result, container)
+            showInformationsUrbanArea(result, container)
         })
 }
 
-export { showCityInformations }
+export { showInformationsCity }

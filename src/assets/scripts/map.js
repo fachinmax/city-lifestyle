@@ -1,7 +1,7 @@
 'use strict'
 
 import { mapContainerDecorator as getCoordsReturnCityInformations } from './utils/handlers/get-coords-return-city'
-import { setStyleDecorator as setMapStyle } from './utils/handlers/set-map-style'
+import { setStyleDecorator as setStyleMap } from './utils/handlers/set-style-map'
 import { setViewMap } from './utils/set-view-map'
 
 function initMap(container) {
@@ -11,12 +11,12 @@ function initMap(container) {
 }
 
 // setting the map
-let mapContainer = document.querySelector('#map')
-let map = initMap(mapContainer)
-let mapLayer = setViewMap(map, 'hybrid')
+let containerMap = document.querySelector('#map')
+let map = initMap(containerMap)
+let layerMap = setViewMap(map, 'hybrid')
 
-map.on('click', getCoordsReturnCityInformations(mapContainer))
+map.on('click', getCoordsReturnCityInformations(containerMap))
 
 // handle the map style
-let mapStyle = document.querySelector('#map-style')
-mapStyle.onchange = setMapStyle(map, mapLayer)
+let styleMap = document.querySelector('#style-map')
+styleMap.onchange = setStyleMap(map, layerMap)
