@@ -1,46 +1,39 @@
-import { dataDictionaryChoises } from '../../data/data-scroll-user-choises'
-
-function setIndex(elemToMark, ulElement) {
-    if (dataDictionaryChoises.index.value == -1 && elemToMark === 'up') {
-        dataDictionaryChoises.index.value = ulElement.children.length - 1
+function setIndex(direction, ulElement) {
+    if (ulElement.index == -1 && direction === 'up') {
+        ulElement.index = ulElement.children.length - 1
         return
     }
 
     if (
-        dataDictionaryChoises.index.value == ulElement.children.length - 1 &&
-        elemToMark === 'down'
+        ulElement.index == ulElement.children.length - 1 &&
+        direction === 'down'
     ) {
-        dataDictionaryChoises.index.value = -1
+        ulElement.index = -1
         return
     }
 
-    if (elemToMark === 'up') {
-        --dataDictionaryChoises.index.value
+    if (direction === 'up') {
+        --ulElement.index
         return
     }
 
-    if (elemToMark === 'down') {
-        ++dataDictionaryChoises.index.value
+    if (direction === 'down') {
+        ++ulElement.index
         return
     }
 }
 
-function highlightChildren(isElemToMark, ulElement, color) {
-    if (dataDictionaryChoises.index.value === -1) return
+function highlightChildren(isElemToMark, container, color) {
+    if (container.index === -1) return
 
     color = isElemToMark ? color : ''
-    ulElement.children[
-        dataDictionaryChoises.index.value
-    ].style.backgroundColor = color
+    container.children[container.index].style.backgroundColor = color
 }
 
-function rewriteInputElement(input, ulElement) {
-    // value memorized into show-cities module
-    if (dataDictionaryChoises.index.value === -1)
-        input.value = dataDictionaryChoises.inputValue.value
-    else
-        input.value =
-            ulElement.children[dataDictionaryChoises.index.value].textContent
+function rewriteInputElement(input, ul) {
+    // value memorized by show-cities module
+    if (ul.index === -1) input.value = input.partialNameCity
+    else input.value = ul.children[ul.index].textContent
 }
 
 function scrollToChoises(event) {
@@ -50,22 +43,21 @@ function scrollToChoises(event) {
 
     if (!this.value) return
 
-    let choisesContainer = this.form.querySelector('#choises')
+    let containerChoises = this.form.querySelector('#choises')
 
-    if (!choisesContainer.children.length) return
+    if (!containerChoises.children.length) return
 
     let direction = event.keyCode === 40 ? 'down' : 'up'
-    highlightChildren(false, choisesContainer)
-    setIndex(direction, choisesContainer)
-    let index = dataDictionaryChoises.index.value
-    if (index === -1) {
-        dataDictionaryChoises.idCity.value = undefined
+    highlightChildren(false, containerChoises)
+    setIndex(direction, containerChoises)
+    if (containerChoises.index === -1) {
+        containerChoises.idCitySelected = undefined
     } else {
-        dataDictionaryChoises.idCity.value =
-            choisesContainer.children[index].dataset.idCity
+        containerChoises.idCitySelected =
+            containerChoises.children[containerChoises.index].idCity
     }
-    highlightChildren(true, choisesContainer, 'yellow')
-    rewriteInputElement(this, choisesContainer)
+    highlightChildren(true, containerChoises, 'yellow')
+    rewriteInputElement(this, containerChoises)
 }
 
 export { scrollToChoises }

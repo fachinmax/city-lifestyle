@@ -5,7 +5,6 @@ import { filterToCityInformations } from '../../modules/filter-to-city-informati
 import { apiGetCityInformations } from '../../api/api-get-city'
 import { showCityInformations } from '../show-city-informations'
 import { checkExistenceCity } from '../check-existence-city'
-import { dataDictionaryChoises } from '../../data/data-scroll-user-choises'
 
 function getCityInformations(event) {
     if (event.keyCode !== 13) return
@@ -20,9 +19,8 @@ function getCityInformations(event) {
     if (!cityName) return
 
     // id city saved when the user score through the list of all possible cities. See data scroll to choises module
-    let idCity = dataDictionaryChoises.idCity.value
-    if (idCity) {
-        apiGetCityInformations(idCity)
+    if (containerChoises.idCitySelected) {
+        apiGetCityInformations(containerChoises.idCitySelected)
             .then(filterToCityInformations)
             .then(informations =>
                 showCityInformations(informations, containerInformations)
