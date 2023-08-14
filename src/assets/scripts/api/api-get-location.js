@@ -14,6 +14,9 @@ function cachingDecoratorInformations() {
                 dictionary.set(`${lat},${lng}`, result)
                 return result
             })
+            .catch(error => {
+                throw new Error('No internet connection')
+            })
     }
 }
 

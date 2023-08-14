@@ -25,7 +25,8 @@ function getCityInformations(event) {
             .then(informations =>
                 showCityInformations(informations, containerInformations)
             )
-            .catch(error => {})
+            // .catch(error => {})
+            .catch(alert)
     } else {
         apiGetCities(cityName)
             .then(filterToCitiesNameIdInformations)
@@ -35,7 +36,9 @@ function getCityInformations(event) {
             .then(informations =>
                 showCityInformations(informations, containerInformations)
             )
-            .catch(error => {})
+            .catch(error => {
+                alert(error.message)
+            })
     }
 }
 

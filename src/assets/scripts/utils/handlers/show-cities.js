@@ -19,7 +19,9 @@ function showCities(event) {
         .then(filterToCitiesNameIdInformations)
         .then(checkExistenceCity)
         .then(results => showOptions(results, container))
-        .catch(error => {})
+        .catch(error => {
+            alert(error.message)
+        })
 }
 
 export { showCities }

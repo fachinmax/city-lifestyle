@@ -36,7 +36,10 @@ function mapContainerDecorator(container) {
             .then(informations => {
                 showCityInformations(informations, containerInformations)
             })
-            .catch(error => {})
+            .catch(error => {
+                alert(error.message)
+            })
+
         setTimeout(removePopup, 2500, this, popup)
     }
 }

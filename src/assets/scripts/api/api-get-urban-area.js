@@ -12,6 +12,9 @@ function cachingDecoratorInformations() {
                 dictionary.set(endpoint, result)
                 return result
             })
+            .catch(error => {
+                throw new Error('No internet connection')
+            })
     }
 }
 
