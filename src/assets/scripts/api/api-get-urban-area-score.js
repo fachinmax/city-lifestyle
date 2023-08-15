@@ -18,6 +18,6 @@ function cachingDecoratorInformations() {
     }
 }
 
-const apiGetUrbanArea = cachingDecoratorInformations()
+const apiGetUrbanAreaScore = cachingDecoratorInformations()
 
-export { apiGetUrbanArea }
+export { apiGetUrbanAreaScore }
