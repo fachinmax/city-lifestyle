@@ -1,8 +1,10 @@
 'use strict'
 
+import '../styles/vendor/leaflet.css'
 import { mapContainerDecorator as getCoordsReturnCityInformations } from './utils/handlers/get-coords-return-city'
 import { setStyleDecorator as setStyleMap } from './utils/handlers/set-style-map'
 import { setViewMap } from './utils/set-view-map'
+import L from './vendor/leaflet-src'
 
 function initMap(container) {
     let map = L.map(container)
