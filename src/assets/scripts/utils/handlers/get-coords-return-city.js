@@ -24,6 +24,7 @@ function mapContainerDecorator(container) {
         let containerInformations = document.querySelector('#informations')
         let containerChoises = document.querySelector('#choises')
         removeChildren(containerChoises, containerInformations)
+        document.querySelector('input').value = ''
 
         let lat = event.latlng.lat
         let lng = event.latlng.lng

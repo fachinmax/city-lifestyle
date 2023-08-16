@@ -14,7 +14,7 @@ function getInformationsCity(event) {
     let containerInformations = document.querySelector(`#${idContainer}`)
     let containerChoises = form.querySelector('#choises')
     removeChildren(containerChoises, containerInformations)
-    let cityName = event.target.value
+    let cityName = this.value
 
     if (!cityName) return
 
@@ -25,8 +25,9 @@ function getInformationsCity(event) {
             .then(informations =>
                 showInformationsCity(informations, containerInformations)
             )
-            // .catch(error => {})
-            .catch(alert)
+            .catch(error => {
+                alert(error.message)
+            })
     } else {
         apiGetCities(cityName)
             .then(filterToInformationsCitiesNameId)
