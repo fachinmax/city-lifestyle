@@ -27,6 +27,7 @@ function findRelatedInformations(values, key) {
     let arr = values.filter(obj => {
         return obj.label === key
     })
+
     return arr[0]
 }
 
@@ -43,7 +44,6 @@ function createContainerScore(score) {
 
 function createContainerDetails(score) {
     let table = document.createElement('table')
-
     let rows = score.data.map(data => {
         let row = document.createElement('tr')
         let description = document.createElement('td')
@@ -76,6 +76,9 @@ function showStatistics(score, details, container) {
     score.forEach(statistic => {
         let containerScore = createContainerScore(statistic)
         let detailsScore = findRelatedInformations(details, statistic.name)
+
+        if (!detailsScore) return
+
         let containerDetails = createContainerDetails(detailsScore)
         containerStatistics.append(containerScore, containerDetails)
     })
