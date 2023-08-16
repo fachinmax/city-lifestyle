@@ -4,6 +4,7 @@ import { getUl } from '../../components/ul'
 import { getDiv } from '../../components/div'
 import { getButton } from '../../components/button'
 import { addHandlersToContainerCitySearch } from '../add-handlers-container-city-search'
+import { getArticle } from '../../components/article'
 
 function createForm(count) {
     let form = getForm(
@@ -24,7 +25,7 @@ function addContainerCitySearch(event) {
     addContainerCitySearch.key++
     let containerCitySearch = getDiv('container-city-search')
     let form = createForm(addContainerCitySearch.key)
-    let informations = getDiv(
+    let informations = getArticle(
         `informations-${addContainerCitySearch.key}`,
         `cities-${addContainerCitySearch.key}`
     )

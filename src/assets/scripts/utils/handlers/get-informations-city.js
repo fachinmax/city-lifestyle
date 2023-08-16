@@ -18,6 +18,7 @@ function getInformationsCity(event) {
 
     if (!cityName) return
 
+    this.value = ''
     // id city saved when the user score through the list of all possible cities. See data scroll to choises module
     if (containerChoises.idCitySelected) {
         apiGetInformationsCity(containerChoises.idCitySelected)

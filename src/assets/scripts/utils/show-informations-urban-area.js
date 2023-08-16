@@ -32,7 +32,7 @@ function findRelatedInformations(values, key) {
 }
 
 function createContainerScore(score) {
-    let card = document.createElement('div')
+    let card = document.createElement('section')
     let title = document.createElement('h3')
     title.innerHTML = score.name
     let paragraph = document.createElement('p')
@@ -59,7 +59,7 @@ function createContainerDetails(score) {
 }
 
 function showSummary(informations, container) {
-    let containerSummary = document.createElement('div')
+    let containerSummary = document.createElement('section')
     let title = document.createElement('h2')
     title.innerHTML = 'Summary'
     containerSummary.innerHTML = informations
@@ -68,7 +68,7 @@ function showSummary(informations, container) {
 }
 
 function showStatistics(score, details, container) {
-    let containerStatistics = document.createElement('div')
+    let containerStatistics = document.createElement('section')
     let title = document.createElement('h2')
     title.innerHTML = 'Statistics'
     containerStatistics.append(title)
@@ -80,13 +80,14 @@ function showStatistics(score, details, container) {
         if (!detailsScore) return
 
         let containerDetails = createContainerDetails(detailsScore)
-        containerStatistics.append(containerScore, containerDetails)
+        containerScore.append(containerDetails)
+        containerStatistics.append(containerScore)
     })
     container.append(containerStatistics)
 }
 
 function showAverageScore(informations, container) {
-    let containerAverage = document.createElement('div')
+    let containerAverage = document.createElement('section')
     let title = document.createElement('h2')
     title.innerHTML = 'Total average'
     let average = document.createElement('p')
