@@ -1,8 +1,8 @@
 'use strict'
 
-import './map'
+import './features/map/index'
 import { showCities } from '../../actions/show-cities'
-import { showInformationsCity } from '../../actions/show-informations-city'
+import { showInformationsCity } from './actions/show-informations-city'
 import { scrollToChoises } from '../../actions/scroll-to-choises'
 
 let form = document.forms['cities']

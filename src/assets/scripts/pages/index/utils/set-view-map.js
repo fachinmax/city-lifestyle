@@ -1,4 +1,6 @@
-import { dataMapStyles } from '../data/data-map-styles'
+'use strict'
+
+import { dataMapStyles } from '../../../data/data-map-styles'
 
 function setViewMap(map, style) {
     let layer = L.tileLayer(...dataMapStyles[style])

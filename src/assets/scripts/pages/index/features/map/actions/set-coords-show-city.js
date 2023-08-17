@@ -1,10 +1,12 @@
-import { apiGetLocation } from '../api/api-get-location'
-import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
-import { filterToInformationsCity } from '../modules/filter-to-informations-city'
-import { showInformationsCity } from '../utils/show-informations-city'
-import { apiGetInformationsCity } from '../api/api-get-city'
-import { removeChildren } from '../utils/remove-children'
-import { checkExistenceCity } from '../utils/check-existence-city'
+'use strict'
+
+import { apiGetLocation } from '../../../../../api/api-get-location'
+import { filterToInformationsCitiesNameId } from '../../../../../modules/filter-to-cities-name-id'
+import { filterToInformationsCity } from '../../../../../modules/filter-to-informations-city'
+import { showInformations } from '../../../utils/show-informations'
+import { apiGetInformationsCity } from '../../../../../api/api-get-city'
+import { removeChildren } from '../../../../../utils/remove-children'
+import { checkExistenceCity } from '../../../../../utils/check-existence-city'
 
 function showPopup(map, lat, lng) {
     let popup = L.popup()
@@ -35,11 +37,9 @@ function mapContainerDecorator(container) {
             .then(apiGetInformationsCity)
             .then(filterToInformationsCity)
             .then(informations => {
-                showInformationsCity(informations, containerInformations)
+                showInformations(informations, containerInformations)
             })
-            .catch(error => {
-                alert(error.message)
-            })
+            .catch(error => alert(error.message))
 
         setTimeout(removePopup, 2500, this, popup)
     }

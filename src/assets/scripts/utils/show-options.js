@@ -1,3 +1,5 @@
+'use strict'
+
 function showOptions(cities, container) {
     cities.forEach(item => {
         let liElement = document.createElement('li')

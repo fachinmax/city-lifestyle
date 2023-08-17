@@ -1,7 +1,9 @@
+'use strict'
+
 import { showInformationsUrbanArea } from './show-informations-urban-area'
-import { apiGetUrbanAreaScore } from '../api/api-get-urban-area-score'
-import { apiGetUrbanAreaDetails } from '../api/api-get-urban-area-details'
-import { filterToInformationsUrbanArea } from '../modules/filter-to-informations-urban-area'
+import { apiGetUrbanAreaScore } from '../../../api/api-get-urban-area-score'
+import { apiGetUrbanAreaDetails } from '../../../api/api-get-urban-area-details'
+import { filterToInformationsUrbanArea } from '../../../modules/filter-to-informations-urban-area'
 
 function showBaseCity(informations, container) {
     for (let [key, value] of Object.entries(informations)) {
@@ -12,7 +14,7 @@ function showBaseCity(informations, container) {
     }
 }
 
-async function showInformationsCity(informations, container) {
+async function showInformations(informations, container) {
     showBaseCity(informations, container)
     let endpoint = informations.urbanArea
 
@@ -26,4 +28,4 @@ async function showInformationsCity(informations, container) {
     showInformationsUrbanArea(dataScore, dataDetails, container)
 }
 
-export { showInformationsCity }
+export { showInformations }
