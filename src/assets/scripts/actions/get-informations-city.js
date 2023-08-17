@@ -1,10 +1,10 @@
-import { removeChildren } from '../remove-children'
-import { apiGetCities } from '../../api/api-get-cities'
-import { filterToInformationsCitiesNameId } from '../../modules/filter-to-cities-name-id'
-import { filterToInformationsCity } from '../../modules/filter-to-informations-city'
-import { apiGetInformationsCity } from '../../api/api-get-city'
-import { showInformationsCity } from '../show-informations-city'
-import { checkExistenceCity } from '../check-existence-city'
+import { removeChildren } from '../utils/remove-children'
+import { apiGetCities } from '../api/api-get-cities'
+import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
+import { filterToInformationsCity } from '../modules/filter-to-informations-city'
+import { apiGetInformationsCity } from '../api/api-get-city'
+import { showInformationsCity } from '../utils/show-informations-city'
+import { checkExistenceCity } from '../utils/check-existence-city'
 
 function getInformationsCity(event) {
     if (event.keyCode !== 13) return

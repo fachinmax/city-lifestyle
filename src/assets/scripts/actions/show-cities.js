@@ -1,8 +1,8 @@
-import { apiGetCities } from '../../api/api-get-cities'
-import { removeChildren } from '../remove-children'
-import { filterToInformationsCitiesNameId } from '../../modules/filter-to-cities-name-id'
-import { showOptions } from '../show-options'
-import { checkExistenceCity } from '../check-existence-city'
+import { apiGetCities } from '../api/api-get-cities'
+import { removeChildren } from '../utils/remove-children'
+import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
+import { showOptions } from '../utils/show-options'
+import { checkExistenceCity } from '../utils/check-existence-city'
 
 function showCities(event) {
     let container = this.form.querySelector('#choises')

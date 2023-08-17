@@ -1,4 +1,4 @@
-import { setViewMap } from '../set-view-map'
+import { setViewMap } from '../utils/set-view-map'
 
 function setStyleDecorator(map, style) {
     return function (event) {

@@ -1,7 +1,7 @@
-import { showCities } from './handlers/show-cities'
-import { getInformationsCity } from './handlers/get-informations-city'
-import { removeContainer } from './handlers/remove-container'
-import { scrollToChoises } from './handlers/scroll-to-choises'
+import { showCities } from '../actions/show-cities'
+import { getInformationsCity } from '../actions/get-informations-city'
+import { removeContainer } from '../actions/remove-container'
+import { scrollToChoises } from '../actions/scroll-to-choises'
 
 function addHandlersToContainerCitySearch() {
     let formsArr = Array.from(document.forms)

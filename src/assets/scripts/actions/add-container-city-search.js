@@ -1,10 +1,10 @@
-import { getForm } from '../../components/form'
-import { getInput } from '../../components/input'
-import { getUl } from '../../components/ul'
-import { getDiv } from '../../components/div'
-import { getButton } from '../../components/button'
-import { addHandlersToContainerCitySearch } from '../add-handlers-container-city-search'
-import { getArticle } from '../../components/article'
+import { getForm } from '../components/form'
+import { getInput } from '../components/input'
+import { getUl } from '../components/ul'
+import { getDiv } from '../components/div'
+import { getButton } from '../components/button'
+import { addHandlersToContainerCitySearch } from '../utils/add-handlers-container-city-search'
+import { getArticle } from '../components/article'
 
 function createForm(count) {
     let form = getForm(
