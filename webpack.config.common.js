@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = {
     entry: {
         main: './src/assets/scripts/pages/index/index.js',
-        // compare: './src/assets/scripts/pages/compare/index.js',
+        compare: './src/assets/scripts/pages/compare/index.js',
     },
     output: {
         clean: true,
@@ -37,11 +37,11 @@ const config = {
             filename: 'index.html',
             chunks: ['main'],
         }),
-        // new HtmlWebpackPlugin({
-        //     template: './src/compare.html',
-        //     filename: 'compare.html',
-        //     chunks: ['compare'],
-        // }),
+        new HtmlWebpackPlugin({
+            template: './src/compare.html',
+            filename: 'compare.html',
+            chunks: ['compare'],
+        }),
         new DotenvWebpackPlugin(),
     ],
 }
