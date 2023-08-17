@@ -3,8 +3,24 @@ import { getInput } from '../components/input'
 import { getUl } from '../components/ul'
 import { getDiv } from '../components/div'
 import { getButton } from '../components/button'
-import { addHandlersToContainerCitySearch } from '../utils/add-handlers-container-city-search'
 import { getArticle } from '../components/article'
+import { showCities } from './show-cities'
+import { showInformationsCity } from './show-informations-city'
+import { scrollToChoises } from './scroll-to-choises'
+import { removeContainer } from './remove-container'
+
+function addHandlers(container) {
+    let form = container.querySelector('form')
+    let searchBar = form.elements['search-bar']
+    let removeSignal = form
+        .closest('#container-city-search')
+        .querySelector('#remove')
+    searchBar.oninput = showCities
+    searchBar.onkeydown = showInformationsCity
+    searchBar.addEventListener('keydown', scrollToChoises)
+    form.onsubmit = event => event.preventDefault()
+    removeSignal.onclick = removeContainer
+}
 
 function createForm(count) {
     let form = getForm(
@@ -34,7 +50,7 @@ function addContainerCitySearch(event) {
     document
         .querySelector('#container-cities-search')
         .append(containerCitySearch)
-    addHandlersToContainerCitySearch()
+    addHandlers(containerCitySearch)
 }
 
 export { addContainerCitySearch }

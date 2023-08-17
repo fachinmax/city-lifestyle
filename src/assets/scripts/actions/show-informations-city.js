@@ -3,10 +3,10 @@ import { apiGetCities } from '../api/api-get-cities'
 import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
 import { filterToInformationsCity } from '../modules/filter-to-informations-city'
 import { apiGetInformationsCity } from '../api/api-get-city'
-import { showInformationsCity } from '../utils/show-informations-city'
+import { showInformationsCity as showInfo } from '../utils/show-informations-city'
 import { checkExistenceCity } from '../utils/check-existence-city'
 
-function getInformationsCity(event) {
+function showInformationsCity(event) {
     if (event.keyCode !== 13) return
 
     let form = this.form
@@ -23,9 +23,7 @@ function getInformationsCity(event) {
     if (containerChoises.idCitySelected) {
         apiGetInformationsCity(containerChoises.idCitySelected)
             .then(filterToInformationsCity)
-            .then(informations =>
-                showInformationsCity(informations, containerInformations)
-            )
+            .then(informations => showInfo(informations, containerInformations))
             .catch(error => {
                 alert(error.message)
             })
@@ -35,13 +33,11 @@ function getInformationsCity(event) {
             .then(checkExistenceCity)
             .then(value => apiGetInformationsCity(value[0].id))
             .then(filterToInformationsCity)
-            .then(informations =>
-                showInformationsCity(informations, containerInformations)
-            )
+            .then(informations => showInfo(informations, containerInformations))
             .catch(error => {
                 alert(error.message)
             })
     }
 }
 
-export { getInformationsCity }
+export { showInformationsCity }
