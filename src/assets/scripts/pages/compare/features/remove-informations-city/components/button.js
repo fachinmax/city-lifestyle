@@ -1,9 +1,9 @@
 'use strict'
 
-import { removeForm } from '../actions/remove-column'
+import { handlerRemoveColumn } from '../actions/remove-column'
 
 let btn = document.createElement('button')
 btn.id = 'remove'
-btn.onclick = removeForm
+btn.onclick = handlerRemoveColumn
 
 export { btn as buttonRemoveColumn }

@@ -1,8 +1,6 @@
-function getForm(id, name, controlsAttribute) {
+function getForm(name) {
     let form = document.createElement('form')
-    form.id = id
     form.name = name
-    form.setAttribute('aria-controls', controlsAttribute)
     return form
 }
 
