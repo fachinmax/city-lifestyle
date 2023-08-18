@@ -9,7 +9,7 @@ import { scrollToChoises } from '../../../../actions/scroll-to-choises'
 function getShowInformationsCity() {
     let form = getForm()
     let showInformationsCity = document.createElement('div')
-    let searchBar = form.querySelector('#choises')
+    let searchBar = form.elements['search-bar']
     searchBar.oninput = showCities
     // searchBar.onkeydown = showInformations
     searchBar.addEventListener('keydown', scrollToChoises)
