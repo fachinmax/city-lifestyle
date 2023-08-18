@@ -2,7 +2,7 @@
 
 import { addShowInfoCityIntoTable } from './actions/add-show-info-city-into-table'
 import { showCities } from '../../actions/show-cities'
-import { showInformations } from './actions/show-informations'
+import { showInformations } from './features/show-informations-city/actions/show-informations'
 import { handlerRemoveColumn } from './features/remove-informations-city/actions/remove-column'
 import { scrollToChoises } from '../../actions/scroll-to-choises'
 
