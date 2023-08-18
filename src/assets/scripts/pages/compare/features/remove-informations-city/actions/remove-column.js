@@ -1,5 +1,7 @@
 'use strict'
 
+import { findIndexCell } from '../../../utils/find-index-cell'
+
 function deleteAllCells(table, index) {
     let rows = Array.from(table.rows)
 
@@ -11,9 +13,7 @@ function deleteAllCells(table, index) {
 function removeColumn(event) {
     let currentCell = this.closest('td')
     let table = document.querySelector('table')
-    let cells = Array.from(table.rows[0].cells)
-    let index = cells.indexOf(currentCell)
-
+    let index = findIndexCell(table, currentCell)
     deleteAllCells(table, index)
 }
 

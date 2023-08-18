@@ -2,7 +2,7 @@
 
 import { addShowInfoCityIntoTable } from './actions/add-show-info-city-into-table'
 import { showCities } from '../../actions/show-cities'
-// import { showInformations } from './show-informations-city/actions/show-informations'
+import { showInformations } from './actions/show-informations'
 import { handlerRemoveColumn } from './features/remove-informations-city/actions/remove-column'
 import { scrollToChoises } from '../../actions/scroll-to-choises'
 
@@ -11,7 +11,7 @@ formsArr.forEach(form => {
     let searchBar = form.elements['search-bar']
     let removeButton = form.closest('td').querySelector('#remove')
     searchBar.oninput = showCities
-    // searchBar.onkeydown = showInformationsCity
+    searchBar.onkeydown = showInformations
     searchBar.addEventListener('keydown', scrollToChoises)
     removeButton.onclick = handlerRemoveColumn
     form.onsubmit = event => event.preventDefault()
