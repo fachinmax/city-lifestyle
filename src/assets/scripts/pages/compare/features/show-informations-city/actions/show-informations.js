@@ -4,6 +4,7 @@ import { findIndexCell } from '../../../utils/find-index-cell'
 import { clearDataTable } from '../../../utils/clear-data-table'
 import { setInformationsTable } from '../set-informations-table'
 import { getInformations } from '../../../../../utils/get-informations'
+import { removeChildren } from '../../../../../utils/remove-children'
 
 async function showInformations(event) {
     if (event.keyCode !== 13) return
@@ -13,6 +14,7 @@ async function showInformations(event) {
     let currentCell = this.form.closest('td')
     let index = findIndexCell(table, currentCell)
     let listChoises = form.querySelector('#choises')
+    removeChildren(listChoises)
     clearDataTable(table, index)
     let cityName = this.value
 
@@ -21,11 +23,9 @@ async function showInformations(event) {
     this.value = ''
     // id city saved when the user score through the list of all possible cities. See data scroll to choises module
 
-    let valueForGetInfo = containerChoises.idCitySelected
-        ? containerChoises.idCitySelected
-        : cityName
+    let valueToGetInfo = listChoises.idCitySelected ? listChoises.idCitySelected : cityName
 
-    let allInfo = await getInformations(valueForGetInfo)
+    let allInfo = await getInformations(valueToGetInfo)
     setInformationsTable(allInfo, table, index)
 }
 

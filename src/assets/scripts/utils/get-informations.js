@@ -1,3 +1,5 @@
+'use strict'
+
 import { apiGetInformationsCity } from '../api/api-get-city'
 import { filterToInformationsCity } from '../modules/filter-to-informations-city'
 import { filterToInformationsUrbanArea } from '../modules/filter-to-informations-urban-area'
@@ -48,9 +50,7 @@ async function getInformations(subvalueEndpoint) {
     infoCity = await getInfoCity(subvalueEndpoint)
     let endpointUrbanArea = infoCity.urbanArea
 
-    infoUrbanArea = endpointUrbanArea
-        ? await getInfoUrbanArea(endpointUrbanArea)
-        : undefined
+    infoUrbanArea = endpointUrbanArea ? await getInfoUrbanArea(endpointUrbanArea) : undefined
 
     return { infoCity, infoUrbanArea }
 }
