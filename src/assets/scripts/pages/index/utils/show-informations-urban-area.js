@@ -1,37 +1,8 @@
 'use strict'
 
-function clearDescription(description) {
-    return description.replace(/\[Teleport score\]/, '(score)')
-}
-
-function clearValue(value) {
-    let valueCleared = undefined
-
-    switch (value.type) {
-        case 'float':
-            valueCleared = parseFloat(value.float_value).toFixed(2)
-            break
-        case 'currency_dollar':
-            valueCleared = `$ ${value.currency_dollar_value}`
-            break
-        case 'percent':
-            valueCleared = parseFloat(value.percent_value).toFixed(2) + ' %'
-            break
-        default:
-            valueCleared = value[`${value.type}_value`]
-            break
-    }
-
-    return valueCleared
-}
-
-function findRelatedInformations(values, key) {
-    let arr = values.filter(obj => {
-        return obj.label === key
-    })
-
-    return arr[0]
-}
+import { findRelatedInformations } from '../../../utils/find-related-informations'
+import { clearDescription } from '../../../utils/clear-description'
+import { clearValue } from '../../../utils/clear-value'
 
 function createContainerScore(score) {
     let card = document.createElement('section')
