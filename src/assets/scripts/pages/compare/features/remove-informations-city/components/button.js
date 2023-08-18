@@ -1,10 +1,11 @@
 'use strict'
 
 import { handlerRemoveColumn } from '../actions/remove-column'
-import { getButton } from '../../../../../components/button'
 
 function getButtonRemoveColumn() {
-    let btn = getButton('remove', '-')
+    let btn = document.createElement('button')
+    btn.id = 'remove'
+    btn.textContent = '-'
     btn.onclick = handlerRemoveColumn
     return btn
 }
