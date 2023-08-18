@@ -1,8 +1,12 @@
 'use strict'
 
-import { buttonRemoveColumn } from './components/button'
+import { getButtonRemoveColumn } from './components/button'
 import { handlerRemoveColumn } from './actions/remove-column'
 
-buttonRemoveColumn.onclick = handlerRemoveColumn
+function getRemoveInformationsCity() {
+    let btn = getButtonRemoveColumn()
+    btn.onclick = handlerRemoveColumn
+    return btn
+}
 
-export { buttonRemoveColumn as removeInformationsCity }
+export { getRemoveInformationsCity }
