@@ -11,7 +11,7 @@ function setDetails(info, table, indexCol, indexRow) {
     info.data.forEach(data => {
         description = clearDescription(data.label)
         value = clearValue(data)
-        indexRow = writeNewRow(description, value, table, indexCol, indexRow)
+        indexRow = writeNewRow(description, value, table, indexCol, indexRow, 'body')
     })
 
     return indexRow
@@ -24,7 +24,8 @@ function setCategories(categories, details, table, indexCol, indexRow) {
             categorie.score_out_of_10.toFixed(2),
             table,
             indexCol,
-            indexRow
+            indexRow,
+            'body'
         )
 
         let relatedDetails = findRelatedInformations(details, categorie.name)
@@ -38,8 +39,7 @@ function setCategories(categories, details, table, indexCol, indexRow) {
 }
 
 function setInformationsUrbanArea(informations, table, indexCol) {
-    console.dir(informations)
-    let indexRows = 5
+    let indexRows = 4
 
     indexRows = setCategories(
         informations.dataScore.categories,
@@ -51,7 +51,8 @@ function setInformationsUrbanArea(informations, table, indexCol) {
 
     // set city score
     let data = informations.dataScore.teleport_city_score.toFixed(2)
-    writeNewRow('City score', data, table, indexCol, indexRows)
+    indexRows = 0
+    writeNewRow('City score', data, table, indexCol, indexRows, 'foot')
 }
 
 export { setInformationsUrbanArea }

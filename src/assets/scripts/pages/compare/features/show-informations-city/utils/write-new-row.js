@@ -1,38 +1,95 @@
 'use strict'
 
-import { addNewRow } from './add-new-row'
+import { addFullRow } from './add-new-row'
 
-function findIndexOf(table, wordToFind) {
+function getRows(table, location) {
+    let rows
+
+    switch (location) {
+        case 'head':
+            rows = table.tHead.children
+            break
+        case 'body':
+            rows = table.tBodies[0].children
+            break
+        case 'foot':
+            rows = table.tFoot.children
+            break
+    }
+
+    return rows
+}
+
+function writeCell(table, value, indexCol, indexRow, location) {
+    switch (location) {
+        case 'head':
+            table.tHead.children[indexRow++].cells[indexCol].textContent = value
+            break
+        case 'body':
+            table.tBodies[0].children[indexRow++].cells[indexCol].textContent = value
+            break
+        case 'foot':
+            table.tFoot.children[indexRow++].cells[indexCol].textContent = value
+            break
+    }
+
+    return indexRow
+}
+
+function findIndexOf(table, wordToFind, location) {
     let pos = -1
-    let rows = Array.from(table.rows)
+    let index = 0
+    let rows = getRows(table, location)
 
-    rows.forEach((row, index) => {
-        if (row.cells[0].textContent !== wordToFind) return
+    for (let row of rows) {
+        if (row.cells[0].textContent === wordToFind) {
+            pos = index
+            break
+        }
 
-        pos = index
-    })
+        index++
+    }
 
     return pos
 }
 
-function checkIfAddRow(table, index, word) {
-    if (!table.rows[index]) return true
+function checkIfAddRow(table, index, word, location) {
+    switch (location) {
+        case 'head':
+            if (!table.tHead.children?.[index]) return true
 
-    if (table.rows[index].cells[0].textContent !== word) return true
+            if (table.tHead.children[index].cells[0].textContent !== word) return true
 
-    return false
+            return false
+            break
+        case 'body':
+            if (!table.tBodies[0].children?.[index]) return true
+
+            if (table.tBodies[0].children[index].cells[0].textContent !== word) return true
+
+            return false
+            break
+        case 'foot':
+            if (!table.tFoot.children?.[index]) return true
+
+            if (table.tFoot.children[index].cells[0].textContent !== word) return true
+
+            return false
+            break
+    }
 }
 
-function writeNewRow(key, info, table, indexCol, indexRow) {
-    let index = findIndexOf(table, key)
+function writeNewRow(key, info, table, indexCol, indexRow, location) {
+    let index = findIndexOf(table, key, location)
 
     if (index !== -1) indexRow = index
 
-    let isAddRow = checkIfAddRow(table, indexRow, key)
+    let isAddRow = checkIfAddRow(table, indexRow, key, location)
 
-    !isAddRow || addNewRow(table, key, indexRow)
+    !isAddRow || addFullRow(table, key, indexRow, location)
 
-    table.rows[indexRow++].cells[indexCol].textContent = info
+    indexRow = writeCell(table, info, indexCol, indexRow, location)
+
     return indexRow
 }
 
