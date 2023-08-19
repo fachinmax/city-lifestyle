@@ -48,7 +48,10 @@ function setInformationsUrbanArea(informations, table, indexCol) {
         indexCol,
         indexRows
     )
-    indexRows++
+
+    // set city score
+    let data = informations.dataScore.teleport_city_score.toFixed(2)
+    writeNewRow('City score', data, table, indexCol, indexRows)
 }
 
 export { setInformationsUrbanArea }
