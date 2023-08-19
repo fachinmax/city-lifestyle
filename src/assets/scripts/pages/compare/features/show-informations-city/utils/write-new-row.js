@@ -1,9 +1,21 @@
 'use strict'
 
-import { addNewRows } from './add-new-rows'
+import { addNewRow } from './add-new-row'
 
-function writeNewRow(key, info, table, indexCol, indexRow, addRows) {
-    !addRows || addNewRows(table, key)
+function checkIfAddRow(table, index, word) {
+    if (!table.rows[index]) return true
+
+    if (table.rows[index].cells[0].textContent !== word) return true
+
+    return false
+}
+
+function writeNewRow(key, info, table, indexCol, indexRow) {
+    let isAddRow = checkIfAddRow(table, indexRow, key)
+
+    !isAddRow || addNewRow(table, key, indexRow)
+    console.log('key: ' + key, 'info ' + info)
+    console.log(table.rows[indexRow])
 
     table.rows[indexRow++].cells[indexCol].textContent = info
     return indexRow
