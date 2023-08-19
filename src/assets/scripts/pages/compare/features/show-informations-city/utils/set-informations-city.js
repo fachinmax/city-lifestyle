@@ -9,6 +9,8 @@ function setInformationsCity(informations, table, indexCol) {
         key = key[0].toUpperCase() + key.slice(1)
         indexRows = writeNewRow(key, value, table, indexCol, indexRows, 'body')
     }
+
+    return indexRows
 }
 
 export { setInformationsCity }

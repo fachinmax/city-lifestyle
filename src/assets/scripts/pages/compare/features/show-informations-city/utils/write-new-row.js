@@ -23,13 +23,13 @@ function getRows(table, location) {
 function writeCell(table, value, indexCol, indexRow, location) {
     switch (location) {
         case 'head':
-            table.tHead.children[indexRow++].cells[indexCol].textContent = value
+            table.tHead.children[indexRow++].cells[indexCol].innerHTML = value
             break
         case 'body':
-            table.tBodies[0].children[indexRow++].cells[indexCol].textContent = value
+            table.tBodies[0].children[indexRow++].cells[indexCol].innerHTML = value
             break
         case 'foot':
-            table.tFoot.children[indexRow++].cells[indexCol].textContent = value
+            table.tFoot.children[indexRow++].cells[indexCol].innerHTML = value
             break
     }
 

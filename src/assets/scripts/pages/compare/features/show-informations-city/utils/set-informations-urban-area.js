@@ -38,9 +38,7 @@ function setCategories(categories, details, table, indexCol, indexRow) {
     return indexRow
 }
 
-function setInformationsUrbanArea(informations, table, indexCol) {
-    let indexRows = 4
-
+function setInformationsUrbanArea(informations, table, indexCol, indexRows) {
     indexRows = setCategories(
         informations.dataScore.categories,
         informations.dataDetails,
@@ -49,7 +47,7 @@ function setInformationsUrbanArea(informations, table, indexCol) {
         indexRows
     )
 
-    // set city score
+    // show city score
     let data = informations.dataScore.teleport_city_score.toFixed(2)
     indexRows = 0
     writeNewRow('City score', data, table, indexCol, indexRows, 'foot')
