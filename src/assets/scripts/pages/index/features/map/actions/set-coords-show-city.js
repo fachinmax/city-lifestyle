@@ -10,9 +10,7 @@ import { showInformationsUrbanArea } from '../../../utils/show-informations-urba
 
 function showPopup(map, lat, lng) {
     let popup = L.popup()
-    popup
-        .setLatLng([lat, lng])
-        .setContent(`Coordinates: latitude: ${lat}, longitude: ${lng}`)
+    popup.setLatLng([lat, lng]).setContent(`Coordinates: latitude: ${lat}, longitude: ${lng}`)
     map.addLayer(popup)
     return popup
 }
@@ -31,6 +29,7 @@ function mapContainerDecorator(container) {
         let lat = event.latlng.lat
         let lng = event.latlng.lng
         let popup = showPopup(this, lat, lng)
+        setTimeout(removePopup, 2500, this, popup)
 
         try {
             let idCity = await apiGetLocation(lat, lng)
@@ -44,16 +43,10 @@ function mapContainerDecorator(container) {
 
             let dataScore = informations.infoUrbanArea.dataScore
             let dataDetails = informations.infoUrbanArea.dataDetails
-            showInformationsUrbanArea(
-                dataScore,
-                dataDetails,
-                containerInformations
-            )
+            showInformationsUrbanArea(dataScore, dataDetails, containerInformations)
         } catch (error) {
             alert(error)
         }
-
-        setTimeout(removePopup, 2500, this, popup)
     }
 }
 

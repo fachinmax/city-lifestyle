@@ -2,7 +2,7 @@
 
 import { findIndexCell } from '../../../utils/find-index-cell'
 import { clearDataTable } from '../../../utils/clear-data-table'
-import { setInformationsTable } from '../set-informations-table'
+import { setInformationsTable } from '../utils/set-informations-table'
 import { getInformations } from '../../../../../utils/get-informations'
 import { removeChildren } from '../../../../../utils/remove-children'
 

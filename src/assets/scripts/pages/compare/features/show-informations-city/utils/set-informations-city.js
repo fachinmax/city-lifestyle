@@ -1,6 +1,6 @@
 'use strict'
 
-import { writeNewRow } from './utils/write-new-row'
+import { writeNewRow } from './write-new-row'
 
 function setInformationsCity(informations, table, indexCol) {
     let indexRows = 1

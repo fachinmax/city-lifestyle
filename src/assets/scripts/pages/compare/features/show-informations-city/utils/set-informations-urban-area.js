@@ -1,9 +1,9 @@
 'use strict'
 
-import { findRelatedInformations } from '../../../../utils/find-related-informations'
-import { clearDescription } from '../../../../utils/clear-description'
-import { clearValue } from '../../../../utils/clear-value'
-import { writeNewRow } from './utils/write-new-row'
+import { findRelatedInformations } from '../../../../../utils/find-related-informations'
+import { clearDescription } from '../../../../../utils/clear-description'
+import { clearValue } from '../../../../../utils/clear-value'
+import { writeNewRow } from './write-new-row'
 
 function setDetails(info, table, indexCol, indexRow) {
     let description, value
