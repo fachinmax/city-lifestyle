@@ -2,7 +2,7 @@
 
 import { getShowInformationsCity } from '../features/show-informations-city/index'
 
-async function addShowInfoCityIntoTable(event) {
+function addShowInfoCityIntoTable(event) {
     let table = document.querySelector('table')
     let rows = Array.from(table.rows)
 
