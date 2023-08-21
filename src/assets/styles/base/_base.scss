@@ -7,18 +7,19 @@ body {
 
 h1 {
     text-align: center;
-    margin-block: 1em;
+}
+
+header,
+main {
+    padding-inline: variables.$space-s-xl;
+    padding-block: variables.$space-s-l;
 }
 
 nav {
-    height: 3em;
+    height: 1em;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    a {
-        margin-inline-end: 2em;
-    }
 }
 
 table {
@@ -28,4 +29,8 @@ table {
 input {
     border-radius: 0.5em;
     text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
 }
