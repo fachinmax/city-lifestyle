@@ -4,10 +4,7 @@ function setIndex(direction, ulElement) {
         return
     }
 
-    if (
-        ulElement.index == ulElement.children.length - 1 &&
-        direction === 'down'
-    ) {
+    if (ulElement.index == ulElement.children.length - 1 && direction === 'down') {
         ulElement.index = -1
         return
     }
@@ -23,11 +20,10 @@ function setIndex(direction, ulElement) {
     }
 }
 
-function highlightChildren(isElemToMark, container, color) {
+function highlightChildren(isElemToMark, container) {
     if (container.index === -1) return
 
-    color = isElemToMark ? color : ''
-    container.children[container.index].style.backgroundColor = color
+    container.children[container.index].setAttribute('data-highlight', isElemToMark)
 }
 
 function rewriteInputElement(input, ul) {
@@ -54,11 +50,10 @@ function scrollToChoises(event) {
     if (containerChoises.index === -1) {
         containerChoises.idCitySelected = undefined
     } else {
-        containerChoises.idCitySelected =
-            containerChoises.children[containerChoises.index].idCity
+        containerChoises.idCitySelected = containerChoises.children[containerChoises.index].idCity
     }
 
-    highlightChildren(true, containerChoises, 'yellow')
+    highlightChildren(true, containerChoises)
     rewriteInputElement(this, containerChoises)
 }
 

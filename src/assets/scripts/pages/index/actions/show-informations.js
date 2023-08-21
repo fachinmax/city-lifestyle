@@ -14,6 +14,7 @@ async function showInformations(event) {
     let containerChoises = form.querySelector('#choises')
     removeChildren(containerChoises, containerInformations)
     let cityName = this.value
+    containerChoises.hidden = true
 
     if (!cityName) return
 

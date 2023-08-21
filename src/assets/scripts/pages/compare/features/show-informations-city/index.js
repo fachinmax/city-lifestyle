@@ -9,6 +9,7 @@ import { showInformations } from './actions/show-informations'
 function getShowInformationsCity() {
     let form = getForm()
     let showInformationsCity = document.createElement('div')
+    showInformationsCity.classList.add('container-city-search')
     let searchBar = form.elements['search-bar']
     searchBar.oninput = showCities
     searchBar.onkeydown = showInformations

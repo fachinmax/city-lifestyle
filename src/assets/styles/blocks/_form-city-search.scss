@@ -1,7 +1,56 @@
 .container-city-search {
     form {
+        position: relative;
+        // width: 500px;
+        height: 50px;
+
         input {
+            text-align: left;
+            z-index: 10;
+            position: absolute;
             width: 100%;
+            padding: 1em;
+            border: 1px solid lightgray;
+            outline: none;
+            overflow: hidden;
+            background-color: white;
+
+            &:focus {
+                border: 2px solid gray;
+            }
+
+            &:hover {
+                box-shadow: 0px 1px 6px hsla(225, 6%, 13%, 0.28);
+            }
         }
+
+        ul {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid lightgray;
+            box-shadow: 0px 1px 6px hsla(225, 6%, 13%, 0.28);
+            padding-block-start: 1.3em;
+            border-radius: 0 0 0.5em 0.5em;
+
+            li {
+                padding: 0.5em 1.5em;
+
+                &[data-highlight='true'] {
+                    background-color: lightgray;
+                }
+            }
+        }
+    }
+
+    &__form-big {
+        width: 50%;
+        min-width: 250px;
+    }
+
+    &__form-small {
+        width: 250px;
     }
 }

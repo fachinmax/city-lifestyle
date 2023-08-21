@@ -9,7 +9,10 @@ function showCities(event) {
     removeChildren(container)
     let nameCity = this.value
 
-    if (!nameCity) return
+    if (!nameCity) {
+        container.hidden = true
+        return
+    }
 
     // I need memorize the input value and set the index to -1 because I'll use it when the user scroll all the city choises (see scroll-to-choises module)
     this.partialNameCity = nameCity
@@ -18,7 +21,13 @@ function showCities(event) {
     apiGetCities(nameCity)
         .then(filterToInformationsCitiesNameId)
         .then(checkExistenceCity)
-        .then(results => showOptions(results, container))
+        .then(
+            results => {
+                container.hidden = false
+                showOptions(results, container)
+            },
+            error => (container.hidden = true)
+        )
         .catch(error => {
             alert(error.message)
         })

@@ -17,6 +17,7 @@ async function showInformations(event) {
     removeChildren(listChoises)
     clearDataTable(table, index)
     let cityName = this.value
+    listChoises.hidden = true
 
     if (!cityName) return
 

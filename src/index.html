@@ -24,14 +24,19 @@
                 <div id="map" class="map"></div>
             </div>
             <div id="container-city-search" class="container-city-search">
-                <form id="cities" name="cities" aria-controls="informations">
+                <form
+                    id="cities"
+                    class="container-city-search__form-big"
+                    name="cities"
+                    aria-controls="informations"
+                >
                     <input
                         type="text"
                         name="search-bar"
                         placeholder="Search..."
                         autocomplete="off"
                     />
-                    <ul id="choises"></ul>
+                    <ul id="choises" hidden="true"></ul>
                 </form>
                 <article id="informations" aria-labelledby="cities"></article>
             </div>
