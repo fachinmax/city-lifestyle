@@ -27,6 +27,7 @@ async function getInfoCity(subvalueEndpoint) {
         return info
     } catch (error) {
         alert(error.message)
+        return undefined
     }
 }
 
@@ -42,14 +43,14 @@ async function getInfoUrbanArea(endpoint) {
         return { dataScore, dataDetails }
     } catch (error) {
         alert(error.message)
+        return undefined
     }
 }
 
 async function getInformations(subvalueEndpoint) {
     let infoCity, infoUrbanArea
     infoCity = await getInfoCity(subvalueEndpoint)
-    let endpointUrbanArea = infoCity.urbanArea
-
+    let endpointUrbanArea = infoCity?.urbanArea
     infoUrbanArea = endpointUrbanArea ? await getInfoUrbanArea(endpointUrbanArea) : undefined
 
     return { infoCity, infoUrbanArea }

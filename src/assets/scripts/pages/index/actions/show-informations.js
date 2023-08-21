@@ -25,6 +25,9 @@ async function showInformations(event) {
         : cityName
 
     let informations = await getInformations(valueForGetInfo)
+
+    if (!informations.infoCity) return
+
     showInformationsCity(informations.infoCity, containerInformations)
 
     if (!informations.infoUrbanArea) return
