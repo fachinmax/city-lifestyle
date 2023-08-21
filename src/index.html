@@ -7,28 +7,21 @@
         <title>Cities lifestyle</title>
     </head>
     <body>
-        <style>
-            #map {
-                width: 80vw;
-                height: 70vh;
-                margin: auto;
-            }
-        </style>
         <header>
             <nav>
-                <a href="./compare.html" target="_blank">compare cities</a>
+                <a class="button-compare" href="./compare.html" target="_blank">compare cities</a>
             </nav>
             <h1>Cities lifestyle</h1>
         </header>
         <main>
             <div class="container-map">
-                <div id="map"></div>
                 <select id="style-map">
                     <option value="hybrid" selected>Hybrid</option>
                     <option value="satellite">Satellite</option>
                     <option value="street">Street</option>
                     <option value="terrain">Terrain</option>
                 </select>
+                <div id="map" class="map"></div>
             </div>
             <div id="container-city-search">
                 <form id="cities" name="cities" aria-controls="informations">
