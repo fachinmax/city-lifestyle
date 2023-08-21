@@ -9,7 +9,11 @@ h1 {
     text-align: center;
 }
 
-header,
+header {
+    padding-inline: variables.$space-s;
+    padding-block: variables.$space-s;
+}
+
 main {
     padding-inline: variables.$space-s-xl;
     padding-block: variables.$space-s-l;
