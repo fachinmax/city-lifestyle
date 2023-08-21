@@ -1,5 +1,6 @@
 'use strict'
 
+import './../../../styles/main.scss'
 import { addShowInfoCityIntoTable } from './actions/add-show-info-city-into-table'
 import { showCities } from '../../actions/show-cities'
 import { showInformations } from './features/show-informations-city/actions/show-informations'

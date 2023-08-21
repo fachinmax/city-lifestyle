@@ -1,5 +1,6 @@
 'use strict'
 
+import './../../../styles/main.scss'
 import './features/map/index'
 import { showCities } from '../../actions/show-cities'
 import { showInformations } from './actions/show-informations'

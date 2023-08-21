@@ -1,6 +1,5 @@
 'use strict'
 
-import '../../../../../../styles/vendor/leaflet.css'
 import { setViewMap } from '../../../utils/set-view-map'
 import L from '../../../../../vendor/leaflet-src'
 
