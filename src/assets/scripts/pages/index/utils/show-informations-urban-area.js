@@ -6,6 +6,7 @@ import { clearValue } from '../../../utils/clear-value'
 
 function createContainerScore(score) {
     let card = document.createElement('section')
+    card.classList.add('container-city-search__summary')
     let title = document.createElement('h3')
     title.innerHTML = score.name
     let paragraph = document.createElement('p')
@@ -17,6 +18,7 @@ function createContainerScore(score) {
 
 function createContainerDetails(score) {
     let table = document.createElement('table')
+
     let rows = score.data.map(data => {
         let row = document.createElement('tr')
         let description = document.createElement('td')
@@ -34,6 +36,8 @@ function createContainerDetails(score) {
 function showSummary(informations, container) {
     let containerSummary = document.createElement('section')
     let title = document.createElement('h2')
+    containerSummary.classList.add('container-city-search__summary')
+
     title.innerHTML = 'Summary'
     containerSummary.innerHTML = informations
     containerSummary.prepend(title)
@@ -42,6 +46,7 @@ function showSummary(informations, container) {
 
 function showStatistics(score, details, container) {
     let containerStatistics = document.createElement('section')
+    containerStatistics.classList.add('container-city-search__statistic')
     let title = document.createElement('h2')
     title.innerHTML = 'Statistics'
     containerStatistics.append(title)
@@ -61,6 +66,8 @@ function showStatistics(score, details, container) {
 
 function showAverageScore(informations, container) {
     let containerAverage = document.createElement('section')
+    containerAverage.classList.add('flow')
+    containerAverage.classList.add('container-city-search__average')
     let title = document.createElement('h2')
     title.innerHTML = 'Total average'
     let average = document.createElement('p')
