@@ -4,15 +4,31 @@ body {
     font-family: variables.$font-family;
     min-height: 100vh;
     line-height: 1.5;
+    font-size: variables.$step-0;
+}
+
+a {
+    font-size: variables.$step--2;
 }
 
 h1 {
     text-align: center;
+    font-size: variables.$step-4;
+}
+
+h2 {
+    text-align: center;
+    font-size: variables.$step-3;
+}
+
+h3 {
+    text-align: center;
+    font-size: variables.$step-2;
 }
 
 header {
     padding-inline: variables.$space-s;
-    padding-block: variables.$space-s;
+    padding-block: variables.$space-s-l;
 }
 
 main {
@@ -30,10 +46,6 @@ table {
     margin: auto;
     text-align: left;
     border-collapse: collapse;
-
-    tfoot {
-        background-color: lightgray;
-    }
 }
 
 td {
@@ -43,10 +55,30 @@ td {
 input {
     border-radius: 0.5em;
     text-align: center;
+    font-size: variables.$step--1;
 }
 
 tr {
     &:nth-child(even) {
-        background-color: lightgray;
+        background-color: map-get(variables.$colors, 'neutral', '400');
+    }
+}
+
+select {
+    font-size: variables.$step--1;
+    margin-inline-start: variables.$space-s-l;
+}
+
+.button {
+    color: map-get(variables.$colors, 'neutral', '200');
+    background-color: map-get(variables.$colors, 'primary');
+    padding: 0.3em 0.7em;
+    border-radius: 0.3em;
+    font-size: variables.$step-0;
+
+    &:hover {
+        box-shadow: 0px 1px 6px map-get(variables.$colors, 'primary');
+        background-color: map-get(variables.$colors, 'neutral', '200');
+        color: map-get(variables.$colors, 'primary');
     }
 }

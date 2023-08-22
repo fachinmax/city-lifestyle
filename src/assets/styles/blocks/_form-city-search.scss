@@ -1,7 +1,16 @@
+@use '../abstracts/variables';
+
 .container-city-search {
-    display: inline-block;
     position: relative;
     margin-inline: 0.5em;
+
+    &[data-position='center'] {
+        padding: 1em;
+    }
+
+    &[data-position='left'] {
+        display: inline-block;
+    }
 
     form {
         position: relative;
@@ -12,29 +21,36 @@
             z-index: 10;
             position: absolute;
             width: 100%;
-            padding: 1em;
-            border: 1px solid lightgray;
+            border: 1px solid map-get(variables.$colors, 'neutral', '400');
             outline: none;
             overflow: hidden;
-            background-color: white;
+            background-color: map-get(variables.$colors, 'neutral', '200');
+
+            &[data-dimension='big'] {
+                padding: 1em;
+            }
+
+            &[data-dimension='small'] {
+                padding: 0.5em;
+            }
 
             &:focus {
-                border: 2px solid gray;
+                border: 2px solid map-get(variables.$colors, 'neutral', '500');
             }
 
             &:hover {
-                box-shadow: 0px 1px 6px hsla(225, 6%, 13%, 0.28);
+                box-shadow: 0px 1px 6px map-get(variables.$colors, 'neutral', '300');
             }
         }
 
         ul {
             position: absolute;
-            top: 30px;
+            top: 2em;
             left: 0;
             right: 0;
-            background-color: white;
-            border: 1px solid lightgray;
-            box-shadow: 0px 1px 6px hsla(225, 6%, 13%, 0.28);
+            background-color: map-get(variables.$colors, 'neutral', '200');
+            border: 1px solid map-get(variables.$colors, 'neutral', '400');
+            box-shadow: 0px 1px 6px map-get(variables.$colors, 'neutral', '300');
             padding-block-start: 1.3em;
             border-radius: 0 0 0.5em 0.5em;
 
@@ -42,7 +58,7 @@
                 padding: 0.5em 1.5em;
 
                 &[data-highlight='true'] {
-                    background-color: lightgray;
+                    background-color: map-get(variables.$colors, 'neutral', '400');
                 }
             }
         }
@@ -52,14 +68,14 @@
         position: absolute;
         right: 5px;
         top: -35px;
-        font-size: 1.7em;
+        font-size: variables.$step-0;
         padding-inline: 0.4em;
         border-radius: 50%;
         line-height: none;
 
         &:hover {
             background-color: lightgray;
-            box-shadow: 0px 1px 6px hsla(225, 6%, 13%, 0.28);
+            box-shadow: 0px 1px 6px map-get(variables.$colors, 'neutral', '300');
         }
     }
 

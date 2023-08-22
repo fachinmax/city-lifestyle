@@ -11,13 +11,13 @@
             <h1>Compare cities</h1>
         </header>
         <main>
-            <button id="add-containers" class="add-containers">Add</button>
+            <button id="add-containers" class="button button__add-containers">Add</button>
             <table>
                 <thead>
                     <tr>
                         <td></td>
                         <td>
-                            <div class="container-city-search">
+                            <div class="container-city-search" data-position="left">
                                 <button id="remove">-</button>
                                 <form
                                     id="cities-1"
@@ -29,13 +29,14 @@
                                         name="search-bar"
                                         placeholder="Search..."
                                         autocomplete="off"
+                                        data-dimension="small"
                                     />
                                     <ul id="choises" hidden></ul>
                                 </form>
                             </div>
                         </td>
                         <td>
-                            <div class="container-city-search">
+                            <div class="container-city-search" data-position="left">
                                 <button id="remove">-</button>
                                 <form
                                     id="cities-2"
@@ -47,6 +48,7 @@
                                         name="search-bar"
                                         placeholder="Search..."
                                         autocomplete="off"
+                                        data-dimension="small"
                                     />
                                     <ul id="choises" hidden></ul>
                                 </form>

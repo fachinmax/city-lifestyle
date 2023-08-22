@@ -10,6 +10,7 @@ function getShowInformationsCity() {
     let form = getForm()
     let showInformationsCity = document.createElement('div')
     showInformationsCity.classList.add('container-city-search')
+    showInformationsCity.setAttribute('data-position', 'left')
     let searchBar = form.elements['search-bar']
     searchBar.oninput = showCities
     searchBar.onkeydown = showInformations

@@ -4,6 +4,7 @@ function getInput(type, name, placeholder) {
     input.name = name
     input.placeholder = placeholder
     input.autocomplete = 'off'
+    input.setAttribute('data-dimension', 'small')
     return input
 }
 

@@ -9,3 +9,31 @@ $space-s-xl: clamp(1.13rem, calc(0.21rem + 4.57vw), 3.75rem);
 $space-s-l: clamp(1.13rem, calc(0.65rem + 2.39vw), 2.5rem);
 /* Space l-xl: 36px → 60px */
 $space-l-xl: clamp(2.25rem, calc(1.73rem + 2.61vw), 3.75rem);
+
+// font-sizes
+/* Step -2: 12.50px → 13.89px */
+$step--2: clamp(0.78rem, calc(0.75rem + 0.15vw), 0.87rem);
+/* Step -1: 15.00px → 16.67px */
+$step--1: clamp(0.94rem, calc(0.9rem + 0.18vw), 1.04rem);
+/* Step 0: 18.00px → 20.00px */
+$step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+/* Step 1: 21.60px → 24.00px */
+$step-1: clamp(1.35rem, calc(1.3rem + 0.26vw), 1.5rem);
+/* Step 2: 25.92px → 28.80px */
+$step-2: clamp(1.62rem, calc(1.56rem + 0.31vw), 1.8rem);
+/* Step 3: 31.10px → 34.56px */
+$step-3: clamp(1.94rem, calc(1.87rem + 0.38vw), 2.16rem);
+/* Step 4: 37.32px → 41.47px */
+$step-4: clamp(2.33rem, calc(2.24rem + 0.45vw), 2.59rem);
+/* Step 5: 44.79px → 49.77px */
+$step-5: clamp(2.8rem, calc(2.69rem + 0.54vw), 3.11rem);
+
+$colors: (
+    'primary': hsl(214, 76%, 45%),
+    'neutral': (
+        '200': white,
+        '300': hsla(225, 6%, 13%, 0.28),
+        '400': lightgray,
+        '500': gray,
+    ),
+);
