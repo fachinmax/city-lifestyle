@@ -23,21 +23,13 @@ function highlightElement(event) {
                 unHighlightElement(listChoises)
             }
 
-            if (
-                target instanceof HTMLLIElement &&
-                relatedTarget instanceof HTMLLIElement
-            ) {
-                relatedTarget.setAttribute('data-highlight', false)
+            if (target instanceof HTMLLIElement) {
+                target.setAttribute('data-highlight', true)
             }
-
-            target.setAttribute('data-highlight', true)
 
             break
         case 'mouseout':
-            if (
-                target instanceof HTMLLIElement &&
-                !(relatedTarget instanceof HTMLLIElement)
-            ) {
+            if (target instanceof HTMLLIElement) {
                 target.setAttribute('data-highlight', false)
             }
 
