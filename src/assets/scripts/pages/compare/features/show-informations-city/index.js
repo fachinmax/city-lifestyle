@@ -6,6 +6,7 @@ import { showCities } from '../../../../actions/show-cities'
 import { scrollToChoises } from '../../../../actions/scroll-to-choises'
 import { showInformations } from './actions/show-informations'
 import { highlightElement } from '../../../../actions/highlight-element'
+import { callShowInformations } from '../../../../actions/call-show-informations'
 
 function getShowInformationsCity() {
     let form = getForm()
@@ -19,6 +20,7 @@ function getShowInformationsCity() {
     searchBar.addEventListener('keydown', scrollToChoises)
     form.onsubmit = event => event.preventDefault()
     containerChoises.onmouseover = containerChoises.onmouseout = highlightElement
+    containerChoises.onclick = callShowInformations
     showInformationsCity.append(getRemoveInformationsCity(), form)
     return showInformationsCity
 }

@@ -7,6 +7,7 @@ import { showInformations } from './features/show-informations-city/actions/show
 import { handlerRemoveColumn } from './features/remove-informations-city/actions/remove-column'
 import { scrollToChoises } from '../../actions/scroll-to-choises'
 import { highlightElement } from '../../actions/highlight-element'
+import { callShowInformations } from '../../actions/call-show-informations'
 
 let formsArr = Array.from(document.forms)
 formsArr.forEach(form => {
@@ -18,6 +19,7 @@ formsArr.forEach(form => {
     searchBar.addEventListener('keydown', scrollToChoises)
     removeButton.onclick = handlerRemoveColumn
     containerChoises.onmouseover = containerChoises.onmouseout = highlightElement
+    containerChoises.onclick = callShowInformations
     form.onsubmit = event => event.preventDefault()
 })
 

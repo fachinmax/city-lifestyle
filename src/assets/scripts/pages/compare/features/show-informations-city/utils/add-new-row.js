@@ -11,7 +11,6 @@ function addArrToRow(arr, table, index, location) {
             break
 
         case 'foot':
-            console.log(...arr)
             table.tFoot.children[index].append(...arr)
             break
     }

@@ -94,7 +94,6 @@ function checkIfAddRow(table, index, word, location) {
 }
 
 function writeNewRow(key, info, table, indexCol, indexRow, location, addFontWeightClass = false) {
-    console.log(indexRow)
     let index = findIndexOf(table, key, location)
 
     if (index !== -1) indexRow = index

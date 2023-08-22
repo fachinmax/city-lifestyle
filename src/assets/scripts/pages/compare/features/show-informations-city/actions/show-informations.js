@@ -24,7 +24,9 @@ async function showInformations(event) {
     this.value = ''
 
     // id city saved when the user score through the list of all possible cities. See data scroll to choises module
-    let valueToGetInfo = listChoises.idCitySelected ? listChoises.idCitySelected : cityName
+    let valueToGetInfo = listChoises.idCitySelected
+        ? listChoises.idCitySelected
+        : cityName
 
     let allInfo = await getInformations(valueToGetInfo)
 
