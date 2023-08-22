@@ -25,7 +25,8 @@ function setCategories(categories, details, table, indexCol, indexRow) {
             table,
             indexCol,
             indexRow,
-            'body'
+            'body',
+            true
         )
 
         let relatedDetails = findRelatedInformations(details, categorie.name)
@@ -50,7 +51,7 @@ function setInformationsUrbanArea(informations, table, indexCol, indexRows) {
     // show city score
     let data = informations.dataScore.teleport_city_score.toFixed(2)
     indexRows = 0
-    writeNewRow('City score', data, table, indexCol, indexRows, 'foot')
+    writeNewRow('City score', data, table, indexCol, indexRows, 'foot', true)
 }
 
 export { setInformationsUrbanArea }

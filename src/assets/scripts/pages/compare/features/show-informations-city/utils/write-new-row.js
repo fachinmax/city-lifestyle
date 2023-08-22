@@ -20,20 +20,34 @@ function getRows(table, location) {
     return rows
 }
 
-function writeCell(table, value, indexCol, indexRow, location) {
+function writeCell(table, value, indexCol, indexRow, location, addFontWeightClass) {
+    let td
+
     switch (location) {
         case 'head':
-            table.tHead.children[indexRow++].cells[indexCol].innerHTML = value
+            td = table.tHead.children[indexRow].cells[indexCol]
+            td.innerHTML = value
+
+            if (addFontWeightClass) td.classList.add('font-weight-bold')
+
             break
         case 'body':
-            table.tBodies[0].children[indexRow++].cells[indexCol].innerHTML = value
+            td = table.tBodies[0].children[indexRow].cells[indexCol]
+            td.innerHTML = value
+
+            if (addFontWeightClass) td.classList.add('font-weight-bold')
+
             break
         case 'foot':
-            table.tFoot.children[indexRow++].cells[indexCol].innerHTML = value
+            td = table.tFoot.children[indexRow].cells[indexCol]
+            td.innerHTML = value
+
+            if (addFontWeightClass) td.classList.add('font-weight-bold')
+
             break
     }
 
-    return indexRow
+    return ++indexRow
 }
 
 function findIndexOf(table, wordToFind, location) {
@@ -79,16 +93,17 @@ function checkIfAddRow(table, index, word, location) {
     }
 }
 
-function writeNewRow(key, info, table, indexCol, indexRow, location) {
+function writeNewRow(key, info, table, indexCol, indexRow, location, addFontWeightClass = false) {
+    console.log(indexRow)
     let index = findIndexOf(table, key, location)
 
     if (index !== -1) indexRow = index
 
     let isAddRow = checkIfAddRow(table, indexRow, key, location)
 
-    !isAddRow || addFullRow(table, key, indexRow, location)
+    !isAddRow || addFullRow(table, key, indexRow, location, addFontWeightClass)
 
-    indexRow = writeCell(table, info, indexCol, indexRow, location)
+    indexRow = writeCell(table, info, indexCol, indexRow, location, addFontWeightClass)
 
     return indexRow
 }

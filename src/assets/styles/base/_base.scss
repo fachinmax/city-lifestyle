@@ -30,10 +30,14 @@ table {
     margin: auto;
     text-align: left;
     border-collapse: collapse;
+
+    tfoot {
+        background-color: lightgray;
+    }
 }
 
 td {
-    padding-block: 0.2em;
+    padding: 0.4em;
 }
 
 input {
@@ -41,6 +45,8 @@ input {
     text-align: center;
 }
 
-tr:nth-child(even) {
-    background-color: lightgray;
+tr {
+    &:nth-child(even) {
+        background-color: lightgray;
+    }
 }

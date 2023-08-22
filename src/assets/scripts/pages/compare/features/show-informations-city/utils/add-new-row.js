@@ -11,16 +11,20 @@ function addArrToRow(arr, table, index, location) {
             break
 
         case 'foot':
+            console.log(...arr)
             table.tFoot.children[index].append(...arr)
             break
     }
 }
 
-function createTdArr(length, text) {
+function createTdArr(length, text, addFontWeightClass) {
     let arrTd = []
 
     let td = document.createElement('td')
     td.textContent = text
+
+    if (addFontWeightClass) td.classList.add('font-weight-bold')
+
     arrTd.push(td)
 
     for (let i = 1; i < length; i++) {
@@ -30,9 +34,9 @@ function createTdArr(length, text) {
     return arrTd
 }
 
-function fillRow(table, indexRow, text, location) {
+function fillRow(table, indexRow, text, location, addFontWeightClass) {
     let numbCells = table.rows[0].cells.length
-    let arr = createTdArr(numbCells, text)
+    let arr = createTdArr(numbCells, text, addFontWeightClass)
     addArrToRow(arr, table, indexRow, location)
 }
 
@@ -45,9 +49,9 @@ function addRow(table, location, index) {
                 table.tHead.append(tr)
             } else {
                 let children = Array.from(table.tHead.children)
-                let right = children.slice(0, index)
-                let left = children.slice(index)
-                let newContent = [...right, tr, ...left]
+                let left = children.slice(0, index)
+                let right = children.slice(index)
+                let newContent = [...left, tr, ...right]
                 table.tHead.innerHTML = ''
                 table.tHead.append(...newContent)
             }
@@ -88,9 +92,9 @@ function addRow(table, location, index) {
     }
 }
 
-function addFullRow(table, textToFirstCell, indexRow, location = 'body') {
+function addFullRow(table, textToFirstCell, indexRow, location = 'body', addFontWeightClass) {
     addRow(table, location, indexRow)
-    fillRow(table, indexRow, textToFirstCell, location)
+    fillRow(table, indexRow, textToFirstCell, location, addFontWeightClass)
 }
 
 export { addFullRow }
