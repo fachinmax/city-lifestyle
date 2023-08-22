@@ -22,7 +22,7 @@ async function showInformations(event) {
     // id city saved when the user score through the list of all possible cities. See data scroll to choises module
 
     let valueForGetInfo = containerChoises.idCitySelected
-        ? containerChoises.idCitySelected
+        ? Number(containerChoises.idCitySelected)
         : cityName
 
     let informations = await getInformations(valueForGetInfo)

@@ -13,7 +13,7 @@ async function getInfoCity(subvalueEndpoint) {
     let response, info
 
     try {
-        if (isFinite(subvalueEndpoint)) {
+        if (Number.isFinite(subvalueEndpoint)) {
             response = await apiGetInformationsCity(subvalueEndpoint)
             info = filterToInformationsCity(response)
         } else {
@@ -51,7 +51,9 @@ async function getInformations(subvalueEndpoint) {
     let infoCity, infoUrbanArea
     infoCity = await getInfoCity(subvalueEndpoint)
     let endpointUrbanArea = infoCity?.urbanArea
-    infoUrbanArea = endpointUrbanArea ? await getInfoUrbanArea(endpointUrbanArea) : undefined
+    infoUrbanArea = endpointUrbanArea
+        ? await getInfoUrbanArea(endpointUrbanArea)
+        : undefined
 
     return { infoCity, infoUrbanArea }
 }
