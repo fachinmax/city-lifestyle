@@ -31,8 +31,6 @@ function highlightElement(event) {
             }
 
             target.setAttribute('data-highlight', true)
-            input.value = target.textContent
-            listChoises.idCitySelected = target.idCity
 
             break
         case 'mouseout':
@@ -41,8 +39,6 @@ function highlightElement(event) {
                 !(relatedTarget instanceof HTMLLIElement)
             ) {
                 target.setAttribute('data-highlight', false)
-                input.value = input.partialNameCity
-                listChoises.idCitySelected = -1
             }
 
             break
