@@ -1,0 +1,13 @@
+.add-containers {
+    background-color: lightgray;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    margin-left: auto;
+    margin-right: 3em;
+    display: block;
+
+    &:hover {
+        box-shadow: 0px 1px 6px hsla(225, 6%, 13%, 0.28);
+        background-color: white;
+    }
+}
