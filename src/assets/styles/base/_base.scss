@@ -16,7 +16,6 @@ header {
 }
 
 main {
-    padding-inline: variables.$space-s-xl;
     padding-block: variables.$space-s-l;
 }
 
@@ -34,7 +33,7 @@ table {
 }
 
 td {
-    padding: 0.5em;
+    padding-block: 0.2em;
 }
 
 input {
