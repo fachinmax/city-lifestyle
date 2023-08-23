@@ -1,3 +1,5 @@
+'use strict'
+
 function callShowInformations(event) {
     let form = event.target.closest('form')
     let ulChoises = event.target.parentElement

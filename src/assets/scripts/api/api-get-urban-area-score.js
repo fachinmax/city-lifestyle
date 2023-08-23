@@ -1,3 +1,5 @@
+'use strict'
+
 function cachingDecoratorInformations() {
     let dictionary = new Map()
 

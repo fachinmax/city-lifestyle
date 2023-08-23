@@ -1,3 +1,5 @@
+'use strict'
+
 import { apiGetCities } from '../api/api-get-cities'
 import { removeChildren } from '../utils/remove-children'
 import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
