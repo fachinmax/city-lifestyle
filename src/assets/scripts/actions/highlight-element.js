@@ -1,11 +1,6 @@
-function unHighlightElement(listChoises) {
-    let index = listChoises.index
+'use strict'
 
-    if (index !== -1) {
-        let elementHighlighted = listChoises.children[index]
-        elementHighlighted.setAttribute('data-highlight', false)
-    }
-}
+import { unHighlightElement } from '../utils/un-highlight-choises'
 
 function highlightElement(event) {
     let form = event.target.closest('form')
@@ -13,18 +8,21 @@ function highlightElement(event) {
     let listChoises = this
     let target = event.target
     let relatedTarget = event.relatedTarget
+    unHighlightElement(listChoises)
 
     switch (event.type) {
         case 'mouseover':
-            if (
-                target instanceof HTMLLIElement &&
-                !(relatedTarget instanceof HTMLLIElement)
-            ) {
-                unHighlightElement(listChoises)
-            }
+            // if (
+            //     target instanceof HTMLLIElement &&
+            //     !(relatedTarget instanceof HTMLLIElement)
+            // ) {
+            // }
 
             if (target instanceof HTMLLIElement) {
                 target.setAttribute('data-highlight', true)
+                let arrChoises = Array.from(listChoises.children)
+                let index = arrChoises.indexOf(target)
+                listChoises.index = index
             }
 
             break

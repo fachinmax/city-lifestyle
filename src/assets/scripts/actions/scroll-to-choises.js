@@ -1,3 +1,7 @@
+'use strict'
+
+import { unHighlightElement } from '../utils/un-highlight-choises'
+
 function setIndex(direction, ulElement) {
     if (ulElement.index == -1 && direction === 'up') {
         ulElement.index = ulElement.children.length - 1
@@ -40,6 +44,7 @@ function scrollToChoises(event) {
     if (!this.value) return
 
     let containerChoises = this.form.querySelector('#choises')
+    unHighlightElement(containerChoises)
 
     if (!containerChoises.children.length) return
 
@@ -50,7 +55,8 @@ function scrollToChoises(event) {
     if (containerChoises.index === -1) {
         containerChoises.idCitySelected = undefined
     } else {
-        containerChoises.idCitySelected = containerChoises.children[containerChoises.index].idCity
+        containerChoises.idCitySelected =
+            containerChoises.children[containerChoises.index].idCity
     }
 
     highlightChildren(true, containerChoises)
