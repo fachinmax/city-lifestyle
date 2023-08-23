@@ -28,7 +28,7 @@ h3 {
 
 header {
     padding-inline: variables.$space-s;
-    padding-block: variables.$space-s-l;
+    padding-block-start: variables.$space-s-l;
 }
 
 main {
@@ -66,7 +66,7 @@ tr {
 
 select {
     font-size: variables.$step--1;
-    margin-inline-start: variables.$space-s-l;
+    margin-inline-start: variables.$space-s-3xl;
 }
 
 .button {
