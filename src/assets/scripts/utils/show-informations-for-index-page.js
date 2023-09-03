@@ -1,9 +1,9 @@
 'use strict'
 
-import { getInformations } from '../../utils/get-informations'
-import { findRelatedInformations } from '../../utils/find-related-informations'
-import { clearDescription } from '../../utils/clear-description'
-import { clearValue } from '../../utils/clear-value'
+import { getInformations } from './get-informations'
+import { findRelatedInformations } from './find-related-informations'
+import { clearDescription } from './clear-description'
+import { clearValue } from './clear-value'
 
 function createContainerScore(score) {
     let card = document.createElement('section')

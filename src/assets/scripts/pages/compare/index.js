@@ -3,7 +3,7 @@
 import './../../../styles/main.scss'
 import { addColumn } from '../../actions/add-column'
 import { showCities } from '../../actions/show-cities'
-import { showInformationsForComparePage } from './show-informations-for-compare-page'
+import { showInformationsForComparePage } from '../../utils/show-informations-for-compare-page'
 import { handlerRemoveColumn } from '../../actions/remove-column'
 import { scrollToChoises } from '../../actions/scroll-to-choises'
 import { highlightElement } from '../../actions/highlight-element'

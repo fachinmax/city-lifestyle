@@ -3,7 +3,7 @@
 import './../../../styles/main.scss'
 import './map'
 import { showCities } from '../../actions/show-cities'
-import { showInformationsForIndexPage } from './show-informations-for-index-page'
+import { showInformationsForIndexPage } from '../../utils/show-informations-for-index-page'
 import { scrollToChoises } from '../../actions/scroll-to-choises'
 import { highlightElement } from '../../actions/highlight-element'
 import { dispatchKeyDownEvent } from '../../actions/dispatch-key-down-event'

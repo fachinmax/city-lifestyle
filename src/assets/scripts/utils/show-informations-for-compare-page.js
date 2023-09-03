@@ -1,14 +1,12 @@
 'use strict'
 
-import { findIndexCell } from './../../utils/find-index-cell'
-import { clearDataTable } from './../../utils/clear-data-table'
-// import { setInformationsTable } from '../utils/set-informations-table'
-import { getInformations } from '../../utils/get-informations'
-import { removeChildren } from '../../utils/remove-children'
-import { findRelatedInformations } from '../../utils/find-related-informations'
-import { clearDescription } from '../../utils/clear-description'
-import { clearValue } from '../../utils/clear-value'
-// import { writeNewRow } from './write-new-row'
+import { findIndexCell } from './find-index-cell'
+import { clearDataTable } from './clear-data-table'
+import { getInformations } from './get-informations'
+import { removeChildren } from './remove-children'
+import { findRelatedInformations } from './find-related-informations'
+import { clearDescription } from './clear-description'
+import { clearValue } from './clear-value'
 
 function addArrToRow(arr, table, index, location) {
     switch (location) {

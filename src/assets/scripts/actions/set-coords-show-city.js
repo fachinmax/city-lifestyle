@@ -4,7 +4,7 @@ import { apiGetLocation } from '../api/api-get-location'
 import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
 import { removeChildren } from '../utils/remove-children'
 import { checkExistenceCity } from '../utils/check-existence-city'
-import { showInformationsForIndexPage } from '../pages/index/show-informations-for-index-page'
+import { showInformationsForIndexPage } from '../utils/show-informations-for-index-page'
 
 function showPopup(map, lat, lng) {
     let popup = L.popup()
