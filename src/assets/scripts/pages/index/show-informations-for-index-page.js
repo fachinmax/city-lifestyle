@@ -1,8 +1,9 @@
 'use strict'
 
-import { findRelatedInformations } from '../../../utils/find-related-informations'
-import { clearDescription } from '../../../utils/clear-description'
-import { clearValue } from '../../../utils/clear-value'
+import { getInformations } from '../../utils/get-informations'
+import { findRelatedInformations } from '../../utils/find-related-informations'
+import { clearDescription } from '../../utils/clear-description'
+import { clearValue } from '../../utils/clear-value'
 
 function createContainerScore(score) {
     let card = document.createElement('section')
@@ -83,4 +84,35 @@ function showInformationsUrbanArea(score, details, container) {
     showAverageScore(score.teleport_city_score, container)
 }
 
-export { showInformationsUrbanArea }
+async function showInformationsCity(informations, container) {
+    let sectionElement = document.createElement('section')
+    sectionElement.classList.add('container-city-search__general')
+    let title = document.createElement('h2')
+    title.innerHTML = 'General'
+    sectionElement.prepend(title)
+
+    for (let [key, value] of Object.entries(informations)) {
+        if (key === 'urbanArea') continue
+        let paragraph = document.createElement('p')
+        paragraph.innerHTML = `${key}: ${value}`
+        sectionElement.append(paragraph)
+    }
+
+    container.append(sectionElement)
+}
+
+async function showInformationsForIndexPage(cityCode, container) {
+    let informations = await getInformations(cityCode)
+
+    if (!informations.infoCity) return
+
+    showInformationsCity(informations.infoCity, container)
+
+    if (!informations.infoUrbanArea) return
+
+    let dataScore = informations.infoUrbanArea.dataScore
+    let dataDetails = informations.infoUrbanArea.dataDetails
+    showInformationsUrbanArea(dataScore, dataDetails, container)
+}
+
+export { showInformationsForIndexPage }

@@ -1,6 +1,6 @@
 'use strict'
 
-import { findIndexCell } from '../../../utils/find-index-cell'
+import { findIndexCell } from '../utils/find-index-cell'
 
 function deleteAllCells(table, index) {
     let rows = Array.from(table.rows)

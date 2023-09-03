@@ -13,8 +13,8 @@ async function getInfoCity(subvalueEndpoint) {
     let response, info
 
     try {
-        if (Number.isFinite(subvalueEndpoint)) {
-            response = await apiGetInformationsCity(subvalueEndpoint)
+        if (isFinite(subvalueEndpoint)) {
+            response = await apiGetInformationsCity(Number(subvalueEndpoint))
             info = filterToInformationsCity(response)
         } else {
             response = await apiGetCities(subvalueEndpoint)

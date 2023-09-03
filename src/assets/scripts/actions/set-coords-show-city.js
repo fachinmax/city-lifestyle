@@ -1,12 +1,10 @@
 'use strict'
 
-import { apiGetLocation } from '../../../../../api/api-get-location'
-import { filterToInformationsCitiesNameId } from '../../../../../modules/filter-to-cities-name-id'
-import { removeChildren } from '../../../../../utils/remove-children'
-import { checkExistenceCity } from '../../../../../utils/check-existence-city'
-import { getInformations } from '../../../../../utils/get-informations'
-import { showInformationsCity } from '../../../utils/show-informations-city'
-import { showInformationsUrbanArea } from '../../../utils/show-informations-urban-area'
+import { apiGetLocation } from '../api/api-get-location'
+import { filterToInformationsCitiesNameId } from '../modules/filter-to-cities-name-id'
+import { removeChildren } from '../utils/remove-children'
+import { checkExistenceCity } from '../utils/check-existence-city'
+import { showInformationsForIndexPage } from '../pages/index/show-informations-for-index-page'
 
 function showPopup(map, lat, lng) {
     let popup = L.popup()
@@ -14,6 +12,7 @@ function showPopup(map, lat, lng) {
         .setLatLng([lat, lng])
         .setContent(`Coordinates: latitude: ${lat}, longitude: ${lng}`)
     map.addLayer(popup)
+
     return popup
 }
 
@@ -38,14 +37,7 @@ function mapContainerDecorator(container) {
                 .then(filterToInformationsCitiesNameId)
                 .then(checkExistenceCity)
 
-            let informations = await getInformations(Number(idCity))
-            showInformationsCity(informations.infoCity, containerInformations)
-
-            if (!informations.infoUrbanArea) return
-
-            let dataScore = informations.infoUrbanArea.dataScore
-            let dataDetails = informations.infoUrbanArea.dataDetails
-            showInformationsUrbanArea(dataScore, dataDetails, containerInformations)
+            showInformationsForIndexPage(idCity, containerInformations)
         } catch (error) {
             alert(error)
         }

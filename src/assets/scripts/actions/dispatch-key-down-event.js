@@ -1,6 +1,6 @@
 'use strict'
 
-function callShowInformations(event) {
+function dispatchKeyDownEvent(event) {
     let form = event.target.closest('form')
     let ulChoises = event.target.parentElement
     let input = form.elements['search-bar']
@@ -12,4 +12,4 @@ function callShowInformations(event) {
     input.dispatchEvent(keyDownEvent)
 }
 
-export { callShowInformations }
+export { dispatchKeyDownEvent }

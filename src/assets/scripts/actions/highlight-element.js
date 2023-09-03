@@ -12,12 +12,6 @@ function highlightElement(event) {
 
     switch (event.type) {
         case 'mouseover':
-            // if (
-            //     target instanceof HTMLLIElement &&
-            //     !(relatedTarget instanceof HTMLLIElement)
-            // ) {
-            // }
-
             if (target instanceof HTMLLIElement) {
                 target.setAttribute('data-highlight', true)
                 let arrChoises = Array.from(listChoises.children)
