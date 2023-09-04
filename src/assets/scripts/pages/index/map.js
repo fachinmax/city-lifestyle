@@ -1,6 +1,6 @@
 'use strict'
 
-import { mapContainerDecorator as getCoordsReturnCityInformations } from '../../actions/set-coords-show-city'
+import { mapContainerDecorator as getCoordsReturnCityInformations } from '../../actions/show-city-info-from-coords'
 import { setStyleDecorator as setStyleMap } from '../../actions/set-style-map'
 import L from '../../vendor/leaflet-src'
 import { dataMapStyles } from '../../data/data-map-styles'

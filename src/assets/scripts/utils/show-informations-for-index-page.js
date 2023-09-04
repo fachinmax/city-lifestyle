@@ -107,12 +107,14 @@ async function showInformationsForIndexPage(cityCode, container) {
     if (!informations.infoCity) return
 
     showInformationsCity(informations.infoCity, container)
+    container.scrollIntoView()
 
     if (!informations.infoUrbanArea) return
 
     let dataScore = informations.infoUrbanArea.dataScore
     let dataDetails = informations.infoUrbanArea.dataDetails
     showInformationsUrbanArea(dataScore, dataDetails, container)
+    container.scrollIntoView()
 }
 
 export { showInformationsForIndexPage }
