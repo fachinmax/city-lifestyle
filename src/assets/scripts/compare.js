@@ -1,6 +1,6 @@
 'use strict'
 
-import './../../../styles/main.scss'
+import '../styles/main.scss'
 
 function filterToInformationsUrbanArea(response) {
     delete response._links
