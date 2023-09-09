@@ -2,8 +2,8 @@ const DotenvWebpackPlugin = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = {
     entry: {
-        main: './src/assets/scripts/pages/index/index.js',
-        compare: './src/assets/scripts/pages/compare/index.js',
+        main: './src/assets/scripts/index.js',
+        compare: './src/assets/scripts/compare.js',
     },
     output: {
         clean: true,
